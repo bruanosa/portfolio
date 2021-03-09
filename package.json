@@ -1,0 +1,33 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "My fullstack portfolio",
+  "author": "Bryan Ruano",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "dev": "gatsby develop -H 0.0.0.0",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "gatsby": "^2.32.9",
+    "gatsby-plugin-sass": "^4.0.0",
+    "node-sass": "^5.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "smooth-scroll": "^16.1.3"
+  },
+  "devDependencies": {
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "webpack": "^5.24.2"
+  }
+}

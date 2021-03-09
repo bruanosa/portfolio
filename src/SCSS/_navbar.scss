@@ -1,0 +1,91 @@
+@import './global';
+
+nav{
+    @include flexJA(row, space-between, center);
+    height: 100%;
+    position: relative;
+    width: 100%;
+
+    #logo-link{
+        color: $landing-text-primary;
+        font-size: 16px;
+        text-decoration: none;
+
+        .logo{
+            height: 60px;
+            width: 75px;
+        }
+    }
+
+    .link-list{
+        @include responsive(mobile){
+            display: none;
+        }
+        @include responsive(tablet){
+            display: none;
+        }
+        @include responsive(desktop){
+            @include flexJA(row, space-evenly, unset);
+            width: 50vw;
+        }
+        @include responsive(large){
+            @include flexJA(row, space-evenly, unset);
+            width: 50vw;
+        }
+
+
+        li{
+            list-style: none;
+
+            .nav-link{
+                color: $landing-text-primary;
+                font-size: 16px;
+                text-decoration: none;
+
+                &:hover{
+                    border-bottom: 2px solid $landing-text-accent;
+                    color: $landing-text-accent;
+                    padding-bottom: 10px;
+                }
+                &:active{
+                    border-bottom: 2px solid $lm-accent;
+                    color: $lm-accent;
+                    padding-bottom: 10px;
+                }
+            }
+
+            .active-link{
+                color: $landing-text-accent;
+                font-size: 16px; 
+                text-decoration: none;
+
+                &:hover{
+                    border-bottom: 2px solid $landing-text-accent;
+                    padding-bottom: 10px;
+                }
+                &:active{
+                    border-bottom: 2px solid $lm-accent;
+                    color: $lm-accent;
+                    padding-bottom: 10px;
+                }
+                
+            }
+        }
+    
+    }
+    .ham-container{
+
+        @include responsive(mobile){
+            display: flex;
+        }
+        @include responsive(tablet){
+            display: flex;
+        }
+        @include responsive(desktop){
+            display: none;
+        }
+        @include responsive(large){
+            display: none;
+        }
+    }
+}

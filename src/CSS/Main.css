@@ -1,0 +1,2237 @@
+@use "sass:math";
+/*
+    This function is supposed to make it easier to create animation delays between each iteration of your animation.
+    
+    @param: $delayT, and $aniamationT.
+        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
+        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
+    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
+        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
+        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
+        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
+*/
+.landing-container {
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[12];
+  -ms-grid-columns: (1fr)[12];
+      grid-template: repeat(12, 1fr)/repeat(12, 1fr);
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+}
+
+.landing-container .grid-item-nav {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .landing-container .grid-item-nav {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 10;
+    grid-column: 2/span 10;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/span 1;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .landing-container .grid-item-nav {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 10;
+    grid-column: 2/span 10;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/span 1;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1823px) {
+  .landing-container .grid-item-nav {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 9;
+    grid-column: 2/span 9;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/span 1;
+  }
+}
+
+@media (min-width: 1824px) {
+  .landing-container .grid-item-nav {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 9;
+    grid-column: 2/span 9;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/span 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .landing-container .grid-item-slider {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -ms-grid-column: 11;
+    -ms-grid-column-span: 1;
+    grid-column: 11/span 1;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3/span 1;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .landing-container .grid-item-slider {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -ms-grid-column: 11;
+    -ms-grid-column-span: 1;
+    grid-column: 11/span 1;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3/span 1;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1823px) {
+  .landing-container .grid-item-slider {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -ms-grid-column: 11;
+    -ms-grid-column-span: 1;
+    grid-column: 11/span 1;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/span 1;
+  }
+}
+
+@media (min-width: 1824px) {
+  .landing-container .grid-item-slider {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -ms-grid-column: 11;
+    -ms-grid-column-span: 1;
+    grid-column: 11/span 1;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2/span 1;
+  }
+}
+
+.landing-container .grid-item-slider .slider {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
+  border-radius: 25px;
+  height: 15px;
+  padding: 0px 5px;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  width: 50px;
+}
+
+.landing-container .grid-item-slider .slider .slider-ball {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: white;
+  border-radius: 20px;
+  height: 22px;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  width: 22px;
+}
+
+.landing-container .grid-item-slider .slider .slider-ball .moon-icon {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 13px;
+  position: relative;
+}
+
+.landing-container .grid-item-slider .slider.dark {
+  background-color: #4eff0d;
+}
+
+.landing-container .grid-item-slider .slider.dark .slider-ball {
+  -webkit-box-shadow: -5px 0px 3px 0px rgba(0, 0, 0, 0.185);
+          box-shadow: -5px 0px 3px 0px rgba(0, 0, 0, 0.185);
+  -webkit-transform: translateX(25px);
+          transform: translateX(25px);
+}
+
+.landing-container .grid-item-slider .slider.dark .slider-ball .moon-icon {
+  color: #0b1f35;
+}
+
+.landing-container .grid-item-slider .slider.light {
+  background-color: #bababa;
+}
+
+.landing-container .grid-item-slider .slider.light .slider-ball {
+  -webkit-box-shadow: 5px 0px 3px 0px rgba(0, 0, 0, 0.185);
+          box-shadow: 5px 0px 3px 0px rgba(0, 0, 0, 0.185);
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
+}
+
+.landing-container .grid-item-slider .slider.light .slider-ball .moon-icon {
+  color: #6d45e2;
+}
+
+.landing-container .grid-item-landing-text {
+  -webkit-box-align: unset;
+      -ms-flex-align: unset;
+          align-items: unset;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+@media (max-width: 767px) {
+  .landing-container .grid-item-landing-text {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 10;
+    grid-column: 2/span 10;
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 6;
+    grid-row: 4/span 6;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .landing-container .grid-item-landing-text {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 6;
+    grid-column: 2/span 6;
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 6;
+    grid-row: 4/span 6;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1823px) {
+  .landing-container .grid-item-landing-text {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 5;
+    grid-column: 2/span 5;
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 6;
+    grid-row: 5/span 6;
+  }
+}
+
+@media (min-width: 1824px) {
+  .landing-container .grid-item-landing-text {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 5;
+    grid-column: 2/span 5;
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 6;
+    grid-row: 5/span 6;
+  }
+}
+
+.landing-container .grid-item-landing-text h1 {
+  color: white;
+  font-family: Impact;
+  font-size: 65px;
+  margin: 0;
+  padding: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.landing-container .grid-item-landing-text h2 {
+  color: #4eff0d;
+  margin: 0;
+  padding: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.landing-container .grid-item-landing-text p {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.landing-container .grid-item-landing-btn {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .landing-container .grid-item-landing-btn {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 8;
+    grid-column: 2/span 8;
+    -ms-grid-row: 10;
+    -ms-grid-row-span: 1;
+    grid-row: 10/span 1;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .landing-container .grid-item-landing-btn {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 4;
+    grid-column: 2/span 4;
+    -ms-grid-row: 8;
+    -ms-grid-row-span: 1;
+    grid-row: 8/span 1;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1823px) {
+  .landing-container .grid-item-landing-btn {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 4;
+    grid-column: 2/span 4;
+    -ms-grid-row: 9;
+    -ms-grid-row-span: 1;
+    grid-row: 9/span 1;
+  }
+}
+
+@media (min-width: 1824px) {
+  .landing-container .grid-item-landing-btn {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 4;
+    grid-column: 2/span 4;
+    -ms-grid-row: 9;
+    -ms-grid-row-span: 1;
+    grid-row: 9/span 1;
+  }
+}
+
+.landing-container .grid-item-landing-img {
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .landing-container .grid-item-landing-img {
+    -ms-grid-column: 13;
+    -ms-grid-column-span: 1;
+    grid-column: 13/span 1;
+    -ms-grid-row: 8;
+    -ms-grid-row-span: 1;
+    grid-row: 8/span 1;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .landing-container .grid-item-landing-img {
+    -ms-grid-column: 13;
+    -ms-grid-column-span: 1;
+    grid-column: 13/span 1;
+    -ms-grid-row: 8;
+    -ms-grid-row-span: 1;
+    grid-row: 8/span 1;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1823px) {
+  .landing-container .grid-item-landing-img {
+    -ms-grid-column: 12;
+    -ms-grid-column-span: 1;
+    grid-column: 12/span 1;
+    -ms-grid-row: 6;
+    -ms-grid-row-span: 1;
+    grid-row: 6/span 1;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 1824px) {
+  .landing-container .grid-item-landing-img {
+    -ms-grid-column: 12;
+    -ms-grid-column-span: 1;
+    grid-column: 12/span 1;
+    -ms-grid-row: 6;
+    -ms-grid-row-span: 1;
+    grid-row: 6/span 1;
+    z-index: 1;
+  }
+}
+
+.landing-container .grid-item-landing-img .mockup-img {
+  position: absolute;
+  right: -250px;
+  top: 0;
+  -webkit-transition: all .4s ease-in;
+  transition: all .4s ease-in;
+}
+
+@media (max-width: 767px) {
+  .landing-container .grid-item-landing-img .mockup-img {
+    height: 360px;
+    opacity: 0;
+    z-index: -5;
+    width: 120px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .landing-container .grid-item-landing-img .mockup-img {
+    height: 342px;
+    width: 810px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1823px) {
+  .landing-container .grid-item-landing-img .mockup-img {
+    height: 380px;
+    width: 900px;
+  }
+}
+
+@media (min-width: 1824px) {
+  .landing-container .grid-item-landing-img .mockup-img {
+    height: 380px;
+    width: 900px;
+  }
+}
+
+.landing-container .landing-background {
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+}
+
+.landing-container .landing-background.dark {
+  background: -webkit-gradient(linear, left bottom, left top, from(#50748e), color-stop(50%, #0d2544), to(black));
+  background: linear-gradient(0deg, #50748e 0%, #0d2544 50%, black 100%);
+}
+
+.landing-container .landing-background.dark .background-bottom path {
+  fill: #0b1f35;
+}
+
+.landing-container .landing-background.light {
+  background: -webkit-gradient(linear, left bottom, left top, from(#48c4ee), to(#6d87d6));
+  background: linear-gradient(0deg, #48c4ee 0%, #6d87d6 100%);
+}
+
+.landing-container .landing-background.light .background-bottom path {
+  fill: white;
+}
+
+.landing-container .landing-background .background-bottom {
+  bottom: -1px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.landing-container .landing-background .landing-stars {
+  height: 60vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100vw;
+}
+
+.landing-container .landing-background .landing-stars.dark {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.landing-container .landing-background .landing-stars.light {
+  display: none;
+}
+
+@use "sass:math";
+/*
+    This function is supposed to make it easier to create animation delays between each iteration of your animation.
+    
+    @param: $delayT, and $aniamationT.
+        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
+        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
+    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
+        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
+        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
+        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
+*/
+#about.background {
+  background: #0b1f35;
+  height: 100vh;
+  width: 100vw;
+}
+
+#about.background.light {
+  background: white;
+}
+
+@use "sass:math";
+/*
+    This function is supposed to make it easier to create animation delays between each iteration of your animation.
+    
+    @param: $delayT, and $aniamationT.
+        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
+        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
+    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
+        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
+        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
+        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
+*/
+@use "sass:math";
+/*
+    This function is supposed to make it easier to create animation delays between each iteration of your animation.
+    
+    @param: $delayT, and $aniamationT.
+        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
+        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
+    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
+        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
+        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
+        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
+*/
+@use "sass:math";
+/*
+    This function is supposed to make it easier to create animation delays between each iteration of your animation.
+    
+    @param: $delayT, and $aniamationT.
+        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
+        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
+    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
+        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
+        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
+        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
+*/
+@use "sass:math";
+/*
+    This function is supposed to make it easier to create animation delays between each iteration of your animation.
+    
+    @param: $delayT, and $aniamationT.
+        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
+        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
+    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
+        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
+        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
+        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
+*/
+@use "sass:math";
+/*
+    This function is supposed to make it easier to create animation delays between each iteration of your animation.
+    
+    @param: $delayT, and $aniamationT.
+        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
+        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
+    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
+        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
+        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
+        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
+*/
+.layout-container {
+  -webkit-box-align: unset;
+      -ms-flex-align: unset;
+          align-items: unset;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
+  overflow-x: hidden;
+  position: relative;
+  width: 100vw;
+}
+
+@use "sass:math";
+/*
+    This function is supposed to make it easier to create animation delays between each iteration of your animation.
+    
+    @param: $delayT, and $aniamationT.
+        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
+        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
+    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
+        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
+        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
+        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
+*/
+nav {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+nav #logo-link {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+nav #logo-link .logo {
+  height: 60px;
+  width: 75px;
+}
+
+@media (max-width: 767px) {
+  nav .link-list {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  nav .link-list {
+    display: none;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1823px) {
+  nav .link-list {
+    -webkit-box-align: unset;
+        -ms-flex-align: unset;
+            align-items: unset;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    width: 50vw;
+  }
+}
+
+@media (min-width: 1824px) {
+  nav .link-list {
+    -webkit-box-align: unset;
+        -ms-flex-align: unset;
+            align-items: unset;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    width: 50vw;
+  }
+}
+
+nav .link-list li {
+  list-style: none;
+}
+
+nav .link-list li .nav-link {
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+nav .link-list li .nav-link:hover {
+  border-bottom: 2px solid #4eff0d;
+  color: #4eff0d;
+  padding-bottom: 10px;
+}
+
+nav .link-list li .nav-link:active {
+  border-bottom: 2px solid #6d45e2;
+  color: #6d45e2;
+  padding-bottom: 10px;
+}
+
+nav .link-list li .active-link {
+  color: #4eff0d;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+nav .link-list li .active-link:hover {
+  border-bottom: 2px solid #4eff0d;
+  padding-bottom: 10px;
+}
+
+nav .link-list li .active-link:active {
+  border-bottom: 2px solid #6d45e2;
+  color: #6d45e2;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+  nav .ham-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  nav .ham-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1823px) {
+  nav .ham-container {
+    display: none;
+  }
+}
+
+@media (min-width: 1824px) {
+  nav .ham-container {
+    display: none;
+  }
+}
+
+@use "sass:color";
+@use "sass:math";
+/*
+    This function is supposed to make it easier to create animation delays between each iteration of your animation.
+    
+    @param: $delayT, and $aniamationT.
+        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
+        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
+    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
+        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
+        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
+        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
+*/
+@-webkit-keyframes greenGlow {
+  0% {
+    -webkit-box-shadow: 0 0 5px #4eff0d;
+            box-shadow: 0 0 5px #4eff0d;
+    -moz-box-shadow: 0 0 5px #4eff0d;
+  }
+  3% {
+    -webkit-box-shadow: 0 0 12px rgba(131, 255, 86, 0.6);
+            box-shadow: 0 0 12px rgba(131, 255, 86, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(131, 255, 86, 0.6);
+  }
+  6% {
+    -webkit-box-shadow: 0 0 5px #4eff0d;
+            box-shadow: 0 0 5px #4eff0d;
+    -moz-box-shadow: 0 0 5px #4eff0d;
+  }
+  9% {
+    -webkit-box-shadow: 0 0 12px rgba(131, 255, 86, 0.6);
+            box-shadow: 0 0 12px rgba(131, 255, 86, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(131, 255, 86, 0.6);
+  }
+  20% {
+    -webkit-box-shadow: 0 0 5px #4eff0d;
+            box-shadow: 0 0 5px #4eff0d;
+    -moz-box-shadow: 0 0 5px #4eff0d;
+  }
+  70% {
+    -webkit-box-shadow: 0 0 12px rgba(131, 255, 86, 0.8);
+            box-shadow: 0 0 12px rgba(131, 255, 86, 0.8);
+    -moz-box-shadow: 0 0 12px rgba(131, 255, 86, 0.8);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 3px #4eff0d;
+            box-shadow: 0 0 3px #4eff0d;
+    -moz-box-shadow: 0 0 3px #4eff0d;
+  }
+}
+@keyframes greenGlow {
+  0% {
+    -webkit-box-shadow: 0 0 5px #4eff0d;
+            box-shadow: 0 0 5px #4eff0d;
+    -moz-box-shadow: 0 0 5px #4eff0d;
+  }
+  3% {
+    -webkit-box-shadow: 0 0 12px rgba(131, 255, 86, 0.6);
+            box-shadow: 0 0 12px rgba(131, 255, 86, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(131, 255, 86, 0.6);
+  }
+  6% {
+    -webkit-box-shadow: 0 0 5px #4eff0d;
+            box-shadow: 0 0 5px #4eff0d;
+    -moz-box-shadow: 0 0 5px #4eff0d;
+  }
+  9% {
+    -webkit-box-shadow: 0 0 12px rgba(131, 255, 86, 0.6);
+            box-shadow: 0 0 12px rgba(131, 255, 86, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(131, 255, 86, 0.6);
+  }
+  20% {
+    -webkit-box-shadow: 0 0 5px #4eff0d;
+            box-shadow: 0 0 5px #4eff0d;
+    -moz-box-shadow: 0 0 5px #4eff0d;
+  }
+  70% {
+    -webkit-box-shadow: 0 0 12px rgba(131, 255, 86, 0.8);
+            box-shadow: 0 0 12px rgba(131, 255, 86, 0.8);
+    -moz-box-shadow: 0 0 12px rgba(131, 255, 86, 0.8);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 3px #4eff0d;
+            box-shadow: 0 0 3px #4eff0d;
+    -moz-box-shadow: 0 0 3px #4eff0d;
+  }
+}
+
+@-webkit-keyframes blueGlow {
+  0% {
+    -webkit-box-shadow: 0 0 5px #00ffff;
+            box-shadow: 0 0 5px #00ffff;
+    -moz-box-shadow: 0 0 5px #00ffff;
+  }
+  3% {
+    -webkit-box-shadow: 0 0 12px rgba(77, 255, 255, 0.6);
+            box-shadow: 0 0 12px rgba(77, 255, 255, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(77, 255, 255, 0.6);
+  }
+  6% {
+    -webkit-box-shadow: 0 0 5px #00ffff;
+            box-shadow: 0 0 5px #00ffff;
+    -moz-box-shadow: 0 0 5px #00ffff;
+  }
+  9% {
+    -webkit-box-shadow: 0 0 12px rgba(77, 255, 255, 0.6);
+            box-shadow: 0 0 12px rgba(77, 255, 255, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(77, 255, 255, 0.6);
+  }
+  20% {
+    -webkit-box-shadow: 0 0 5px #00ffff;
+            box-shadow: 0 0 5px #00ffff;
+    -moz-box-shadow: 0 0 5px #00ffff;
+  }
+  70% {
+    -webkit-box-shadow: 0 0 12px rgba(77, 255, 255, 0.8);
+            box-shadow: 0 0 12px rgba(77, 255, 255, 0.8);
+    -moz-box-shadow: 0 0 12px rgba(77, 255, 255, 0.8);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 3px #00ffff;
+            box-shadow: 0 0 3px #00ffff;
+    -moz-box-shadow: 0 0 3px #00ffff;
+  }
+}
+
+@keyframes blueGlow {
+  0% {
+    -webkit-box-shadow: 0 0 5px #00ffff;
+            box-shadow: 0 0 5px #00ffff;
+    -moz-box-shadow: 0 0 5px #00ffff;
+  }
+  3% {
+    -webkit-box-shadow: 0 0 12px rgba(77, 255, 255, 0.6);
+            box-shadow: 0 0 12px rgba(77, 255, 255, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(77, 255, 255, 0.6);
+  }
+  6% {
+    -webkit-box-shadow: 0 0 5px #00ffff;
+            box-shadow: 0 0 5px #00ffff;
+    -moz-box-shadow: 0 0 5px #00ffff;
+  }
+  9% {
+    -webkit-box-shadow: 0 0 12px rgba(77, 255, 255, 0.6);
+            box-shadow: 0 0 12px rgba(77, 255, 255, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(77, 255, 255, 0.6);
+  }
+  20% {
+    -webkit-box-shadow: 0 0 5px #00ffff;
+            box-shadow: 0 0 5px #00ffff;
+    -moz-box-shadow: 0 0 5px #00ffff;
+  }
+  70% {
+    -webkit-box-shadow: 0 0 12px rgba(77, 255, 255, 0.8);
+            box-shadow: 0 0 12px rgba(77, 255, 255, 0.8);
+    -moz-box-shadow: 0 0 12px rgba(77, 255, 255, 0.8);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 3px #00ffff;
+            box-shadow: 0 0 3px #00ffff;
+    -moz-box-shadow: 0 0 3px #00ffff;
+  }
+}
+
+@-webkit-keyframes purpleGlow {
+  0% {
+    -webkit-box-shadow: 0 0 5px #8a8aff;
+            box-shadow: 0 0 5px #8a8aff;
+    -moz-box-shadow: 0 0 5px #8a8aff;
+  }
+  3% {
+    -webkit-box-shadow: 0 0 12px rgba(173, 173, 255, 0.6);
+            box-shadow: 0 0 12px rgba(173, 173, 255, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(173, 173, 255, 0.6);
+  }
+  6% {
+    -webkit-box-shadow: 0 0 5px #8a8aff;
+            box-shadow: 0 0 5px #8a8aff;
+    -moz-box-shadow: 0 0 5px #8a8aff;
+  }
+  9% {
+    -webkit-box-shadow: 0 0 12px rgba(173, 173, 255, 0.6);
+            box-shadow: 0 0 12px rgba(173, 173, 255, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(173, 173, 255, 0.6);
+  }
+  20% {
+    -webkit-box-shadow: 0 0 5px #8a8aff;
+            box-shadow: 0 0 5px #8a8aff;
+    -moz-box-shadow: 0 0 5px #8a8aff;
+  }
+  70% {
+    -webkit-box-shadow: 0 0 12px rgba(173, 173, 255, 0.8);
+            box-shadow: 0 0 12px rgba(173, 173, 255, 0.8);
+    -moz-box-shadow: 0 0 12px rgba(173, 173, 255, 0.8);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 3px #8a8aff;
+            box-shadow: 0 0 3px #8a8aff;
+    -moz-box-shadow: 0 0 3px #8a8aff;
+  }
+}
+
+@keyframes purpleGlow {
+  0% {
+    -webkit-box-shadow: 0 0 5px #8a8aff;
+            box-shadow: 0 0 5px #8a8aff;
+    -moz-box-shadow: 0 0 5px #8a8aff;
+  }
+  3% {
+    -webkit-box-shadow: 0 0 12px rgba(173, 173, 255, 0.6);
+            box-shadow: 0 0 12px rgba(173, 173, 255, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(173, 173, 255, 0.6);
+  }
+  6% {
+    -webkit-box-shadow: 0 0 5px #8a8aff;
+            box-shadow: 0 0 5px #8a8aff;
+    -moz-box-shadow: 0 0 5px #8a8aff;
+  }
+  9% {
+    -webkit-box-shadow: 0 0 12px rgba(173, 173, 255, 0.6);
+            box-shadow: 0 0 12px rgba(173, 173, 255, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(173, 173, 255, 0.6);
+  }
+  20% {
+    -webkit-box-shadow: 0 0 5px #8a8aff;
+            box-shadow: 0 0 5px #8a8aff;
+    -moz-box-shadow: 0 0 5px #8a8aff;
+  }
+  70% {
+    -webkit-box-shadow: 0 0 12px rgba(173, 173, 255, 0.8);
+            box-shadow: 0 0 12px rgba(173, 173, 255, 0.8);
+    -moz-box-shadow: 0 0 12px rgba(173, 173, 255, 0.8);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 3px #8a8aff;
+            box-shadow: 0 0 3px #8a8aff;
+    -moz-box-shadow: 0 0 3px #8a8aff;
+  }
+}
+
+@-webkit-keyframes orangeGlow {
+  0% {
+    -webkit-box-shadow: 0 0 5px #ff901e;
+            box-shadow: 0 0 5px #ff901e;
+    -moz-box-shadow: 0 0 5px #ff901e;
+  }
+  3% {
+    -webkit-box-shadow: 0 0 12px rgba(255, 177, 98, 0.6);
+            box-shadow: 0 0 12px rgba(255, 177, 98, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(255, 177, 98, 0.6);
+  }
+  6% {
+    -webkit-box-shadow: 0 0 5px #ff901e;
+            box-shadow: 0 0 5px #ff901e;
+    -moz-box-shadow: 0 0 5px #ff901e;
+  }
+  9% {
+    -webkit-box-shadow: 0 0 12px rgba(255, 177, 98, 0.6);
+            box-shadow: 0 0 12px rgba(255, 177, 98, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(255, 177, 98, 0.6);
+  }
+  20% {
+    -webkit-box-shadow: 0 0 5px #ff901e;
+            box-shadow: 0 0 5px #ff901e;
+    -moz-box-shadow: 0 0 5px #ff901e;
+  }
+  70% {
+    -webkit-box-shadow: 0 0 12px rgba(255, 177, 98, 0.8);
+            box-shadow: 0 0 12px rgba(255, 177, 98, 0.8);
+    -moz-box-shadow: 0 0 12px rgba(255, 177, 98, 0.8);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 3px #ff901e;
+            box-shadow: 0 0 3px #ff901e;
+    -moz-box-shadow: 0 0 3px #ff901e;
+  }
+}
+
+@keyframes orangeGlow {
+  0% {
+    -webkit-box-shadow: 0 0 5px #ff901e;
+            box-shadow: 0 0 5px #ff901e;
+    -moz-box-shadow: 0 0 5px #ff901e;
+  }
+  3% {
+    -webkit-box-shadow: 0 0 12px rgba(255, 177, 98, 0.6);
+            box-shadow: 0 0 12px rgba(255, 177, 98, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(255, 177, 98, 0.6);
+  }
+  6% {
+    -webkit-box-shadow: 0 0 5px #ff901e;
+            box-shadow: 0 0 5px #ff901e;
+    -moz-box-shadow: 0 0 5px #ff901e;
+  }
+  9% {
+    -webkit-box-shadow: 0 0 12px rgba(255, 177, 98, 0.6);
+            box-shadow: 0 0 12px rgba(255, 177, 98, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(255, 177, 98, 0.6);
+  }
+  20% {
+    -webkit-box-shadow: 0 0 5px #ff901e;
+            box-shadow: 0 0 5px #ff901e;
+    -moz-box-shadow: 0 0 5px #ff901e;
+  }
+  70% {
+    -webkit-box-shadow: 0 0 12px rgba(255, 177, 98, 0.8);
+            box-shadow: 0 0 12px rgba(255, 177, 98, 0.8);
+    -moz-box-shadow: 0 0 12px rgba(255, 177, 98, 0.8);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 3px #ff901e;
+            box-shadow: 0 0 3px #ff901e;
+    -moz-box-shadow: 0 0 3px #ff901e;
+  }
+}
+
+@-webkit-keyframes formGlow {
+  0% {
+    -webkit-box-shadow: 0 0 5px #7fb3d6;
+            box-shadow: 0 0 5px #7fb3d6;
+    -moz-box-shadow: 0 0 5px #7fb3d6;
+  }
+  3% {
+    -webkit-box-shadow: 0 0 12px rgba(165, 202, 226, 0.6);
+            box-shadow: 0 0 12px rgba(165, 202, 226, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(165, 202, 226, 0.6);
+  }
+  6% {
+    -webkit-box-shadow: 0 0 5px #7fb3d6;
+            box-shadow: 0 0 5px #7fb3d6;
+    -moz-box-shadow: 0 0 5px #7fb3d6;
+  }
+  9% {
+    -webkit-box-shadow: 0 0 12px rgba(165, 202, 226, 0.6);
+            box-shadow: 0 0 12px rgba(165, 202, 226, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(165, 202, 226, 0.6);
+  }
+  20% {
+    -webkit-box-shadow: 0 0 5px #7fb3d6;
+            box-shadow: 0 0 5px #7fb3d6;
+    -moz-box-shadow: 0 0 5px #7fb3d6;
+  }
+  70% {
+    -webkit-box-shadow: 0 0 12px rgba(165, 202, 226, 0.8);
+            box-shadow: 0 0 12px rgba(165, 202, 226, 0.8);
+    -moz-box-shadow: 0 0 12px rgba(165, 202, 226, 0.8);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 3px #7fb3d6;
+            box-shadow: 0 0 3px #7fb3d6;
+    -moz-box-shadow: 0 0 3px #7fb3d6;
+  }
+}
+
+@keyframes formGlow {
+  0% {
+    -webkit-box-shadow: 0 0 5px #7fb3d6;
+            box-shadow: 0 0 5px #7fb3d6;
+    -moz-box-shadow: 0 0 5px #7fb3d6;
+  }
+  3% {
+    -webkit-box-shadow: 0 0 12px rgba(165, 202, 226, 0.6);
+            box-shadow: 0 0 12px rgba(165, 202, 226, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(165, 202, 226, 0.6);
+  }
+  6% {
+    -webkit-box-shadow: 0 0 5px #7fb3d6;
+            box-shadow: 0 0 5px #7fb3d6;
+    -moz-box-shadow: 0 0 5px #7fb3d6;
+  }
+  9% {
+    -webkit-box-shadow: 0 0 12px rgba(165, 202, 226, 0.6);
+            box-shadow: 0 0 12px rgba(165, 202, 226, 0.6);
+    -moz-box-shadow: 0 0 12px rgba(165, 202, 226, 0.6);
+  }
+  20% {
+    -webkit-box-shadow: 0 0 5px #7fb3d6;
+            box-shadow: 0 0 5px #7fb3d6;
+    -moz-box-shadow: 0 0 5px #7fb3d6;
+  }
+  70% {
+    -webkit-box-shadow: 0 0 12px rgba(165, 202, 226, 0.8);
+            box-shadow: 0 0 12px rgba(165, 202, 226, 0.8);
+    -moz-box-shadow: 0 0 12px rgba(165, 202, 226, 0.8);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 3px #7fb3d6;
+            box-shadow: 0 0 3px #7fb3d6;
+    -moz-box-shadow: 0 0 3px #7fb3d6;
+  }
+}
+
+.btn-container .btn {
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px 25px;
+  position: relative;
+  text-align: none;
+  text-decoration: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.btn-container .btn.light {
+  color: black;
+  font-weight: 700;
+}
+
+.btn-container .btn.light.green {
+  background-color: #4eff0d;
+}
+
+.btn-container .btn.light.blue {
+  background-color: #00ffff;
+}
+
+.btn-container .btn.light.purple {
+  background-color: #8a8aff;
+}
+
+.btn-container .btn.light.orange {
+  background-color: #ff901e;
+}
+
+.btn-container .btn.light.form-blue {
+  background-color: #4fb8e9;
+}
+
+.btn-container .btn.dark {
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.btn-container .btn.dark.green {
+  border: solid 1px #4eff0d;
+  -webkit-box-shadow: 0px 0px 5px #4eff0d;
+          box-shadow: 0px 0px 5px #4eff0d;
+  color: #4eff0d;
+  -webkit-animation-name: greenGlow;
+          animation-name: greenGlow;
+}
+
+.btn-container .btn.dark.blue {
+  border: solid 1px #00ffff;
+  -webkit-box-shadow: 0px 0px 5px #00ffff;
+          box-shadow: 0px 0px 5px #00ffff;
+  color: #00ffff;
+  -webkit-animation-name: blueGlow;
+          animation-name: blueGlow;
+}
+
+.btn-container .btn.dark.purple {
+  border: solid 1px #8a8aff;
+  -webkit-box-shadow: 0px 0px 5px #8a8aff;
+          box-shadow: 0px 0px 5px #8a8aff;
+  color: #8a8aff;
+  -webkit-animation-name: purpleGlow;
+          animation-name: purpleGlow;
+}
+
+.btn-container .btn.dark.orange {
+  border: solid 1px #ff901e;
+  -webkit-box-shadow: 0px 0px 5px #ff901e;
+          box-shadow: 0px 0px 5px #ff901e;
+  color: #ff901e;
+  -webkit-animation-name: orangeGlow;
+          animation-name: orangeGlow;
+}
+
+.btn-container .btn.dark.form-blue {
+  border: solid 1px #7fb3d6;
+  -webkit-box-shadow: 0px 0px 5px #7fb3d6;
+          box-shadow: 0px 0px 5px #7fb3d6;
+  color: #7fb3d6;
+  -webkit-animation-name: formGlow;
+          animation-name: formGlow;
+}
+
+.hamburger-btn {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 50px;
+  margin: auto;
+  width: 50px;
+  z-index: 3;
+}
+
+.hamburger-btn .hamburger {
+  background-color: white;
+  border-radius: 5px;
+  height: 5px;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  width: 40px;
+}
+
+.hamburger-btn .hamburger::before, .hamburger-btn .hamburger::after {
+  background-color: white;
+  border-radius: 5px;
+  content: "";
+  height: 5px;
+  position: absolute;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  width: 40px;
+}
+
+.hamburger-btn .hamburger::before {
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
+}
+
+.hamburger-btn .hamburger::after {
+  -webkit-transform: translateY(15px);
+          transform: translateY(15px);
+}
+
+.hamburger-btn .hamburger.open {
+  background-color: transparent;
+}
+
+.hamburger-btn .hamburger.open::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.hamburger-btn .hamburger.open::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.drop-down-menu {
+  height: 100vh;
+  position: absolute;
+  right: -50vw;
+  top: 0;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  width: 50vw;
+}
+
+@media (max-width: 767px) {
+  .drop-down-menu {
+    right: -75vw;
+    width: 75vw;
+  }
+}
+
+.drop-down-menu.open {
+  background-color: rgba(0, 0, 0, 0.801);
+  -webkit-transform: translateX(-50vw);
+          transform: translateX(-50vw);
+  z-index: 2;
+}
+
+@media (max-width: 767px) {
+  .drop-down-menu.open {
+    -webkit-transform: translateX(-75vw);
+            transform: translateX(-75vw);
+  }
+}
+
+.drop-down-menu.closed {
+  opacity: 0;
+  z-index: -2;
+}
+
+.drop-down-menu nav {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.drop-down-menu nav ul {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 70%;
+  list-style: none;
+  width: 50%;
+}
+
+.drop-down-menu nav ul li .nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: xx-large;
+}
+
+@media (max-width: 767px) {
+  .drop-down-menu nav ul li .nav-link {
+    font-size: x-large;
+  }
+}
+
+.drop-down-menu nav ul li .nav-link:hover {
+  border-bottom: 2px solid #4eff0d;
+  color: #4eff0d;
+  padding-bottom: 10px;
+}
+
+.drop-down-menu nav ul li .nav-link:active {
+  border-bottom: 2px solid #6d45e2;
+  color: #6d45e2;
+  padding-bottom: 10px;
+}
+
+.drop-down-menu nav ul li .active-link {
+  color: #4eff0d;
+  text-decoration: none;
+  font-size: xx-large;
+}
+
+@media (max-width: 767px) {
+  .drop-down-menu nav ul li .active-link {
+    font-size: x-large;
+  }
+}
+
+.drop-down-menu nav ul li .active-link:hover {
+  border-bottom: 2px solid #4eff0d;
+  padding-bottom: 10px;
+}
+
+.drop-down-menu nav ul li .active-link:active {
+  border-bottom: 2px solid #6d45e2;
+  color: #6d45e2;
+  padding-bottom: 10px;
+}
+
+@use "sass:math";
+@use "sass:color";
+@use "sass:math";
+/*
+    This function is supposed to make it easier to create animation delays between each iteration of your animation.
+    
+    @param: $delayT, and $aniamationT.
+        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
+        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
+    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
+        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
+        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
+        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
+*/
+@-webkit-keyframes starGlow {
+  0% {
+    background-color: rgba(186, 186, 186, 0.25);
+  }
+  25% {
+    background-color: #bababa;
+  }
+  50% {
+    background-color: white;
+    -webkit-box-shadow: 0 0 10px white;
+            box-shadow: 0 0 10px white;
+  }
+  75% {
+    background-color: #bababa;
+  }
+  100% {
+    background-color: rgba(186, 186, 186, 0.25);
+  }
+}
+@keyframes starGlow {
+  0% {
+    background-color: rgba(186, 186, 186, 0.25);
+  }
+  25% {
+    background-color: #bababa;
+  }
+  50% {
+    background-color: white;
+    -webkit-box-shadow: 0 0 10px white;
+            box-shadow: 0 0 10px white;
+  }
+  75% {
+    background-color: #bababa;
+  }
+  100% {
+    background-color: rgba(186, 186, 186, 0.25);
+  }
+}
+
+@media (max-width: 767px) {
+  @-webkit-keyframes tail {
+    0%, 62% {
+    }
+    63% {
+      height: 0.75px;
+      right: 110vw;
+      width: 0;
+    }
+    81% {
+      width: 10px;
+    }
+    100% {
+      height: 0.75px;
+      right: 15vw;
+      width: 0px;
+    }
+  }
+  @keyframes tail {
+    0%, 62% {
+    }
+    63% {
+      height: 0.75px;
+      right: 110vw;
+      width: 0;
+    }
+    81% {
+      width: 10px;
+    }
+    100% {
+      height: 0.75px;
+      right: 15vw;
+      width: 0px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  @-webkit-keyframes tail {
+    0%, 62% {
+    }
+    63% {
+      right: 110vw;
+      width: 0;
+    }
+    81% {
+      width: 20px;
+    }
+    100% {
+      right: 15vw;
+      width: 0px;
+    }
+  }
+  @keyframes tail {
+    0%, 62% {
+    }
+    63% {
+      right: 110vw;
+      width: 0;
+    }
+    81% {
+      width: 20px;
+    }
+    100% {
+      right: 15vw;
+      width: 0px;
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1823px) {
+  @-webkit-keyframes tail {
+    0%, 62% {
+    }
+    63% {
+      right: 95vw;
+      width: 0;
+    }
+    81% {
+      width: 20px;
+    }
+    100% {
+      width: 0px;
+      right: 10vw;
+    }
+  }
+  @keyframes tail {
+    0%, 62% {
+    }
+    63% {
+      right: 95vw;
+      width: 0;
+    }
+    81% {
+      width: 20px;
+    }
+    100% {
+      width: 0px;
+      right: 10vw;
+    }
+  }
+}
+
+@media (min-width: 1824px) {
+  @-webkit-keyframes tail {
+    0%, 62% {
+    }
+    63% {
+      right: 95vw;
+      width: 0;
+    }
+    81% {
+      width: 20px;
+    }
+    100% {
+      width: 0px;
+      right: 10vw;
+    }
+  }
+  @keyframes tail {
+    0%, 62% {
+    }
+    63% {
+      right: 95vw;
+      width: 0;
+    }
+    81% {
+      width: 20px;
+    }
+    100% {
+      width: 0px;
+      right: 10vw;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  @-webkit-keyframes tailone {
+    0%, 57% {
+    }
+    58% {
+      height: 0.75px;
+      right: 110vw;
+      width: 0;
+    }
+    79% {
+      width: 10px;
+    }
+    100% {
+      height: 0.75px;
+      right: 15vw;
+      width: 0px;
+    }
+  }
+  @keyframes tailone {
+    0%, 57% {
+    }
+    58% {
+      height: 0.75px;
+      right: 110vw;
+      width: 0;
+    }
+    79% {
+      width: 10px;
+    }
+    100% {
+      height: 0.75px;
+      right: 15vw;
+      width: 0px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  @-webkit-keyframes tailone {
+    0%, 57% {
+    }
+    58% {
+      right: 110vw;
+      width: 0;
+    }
+    79% {
+      width: 20px;
+    }
+    100% {
+      right: 15vw;
+      width: 0px;
+    }
+  }
+  @keyframes tailone {
+    0%, 57% {
+    }
+    58% {
+      right: 110vw;
+      width: 0;
+    }
+    79% {
+      width: 20px;
+    }
+    100% {
+      right: 15vw;
+      width: 0px;
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1823px) {
+  @-webkit-keyframes tailone {
+    0%, 57% {
+    }
+    58% {
+      right: 95vw;
+      width: 0;
+    }
+    79% {
+      width: 20px;
+    }
+    100% {
+      right: 10vw;
+      width: 0px;
+    }
+  }
+  @keyframes tailone {
+    0%, 57% {
+    }
+    58% {
+      right: 95vw;
+      width: 0;
+    }
+    79% {
+      width: 20px;
+    }
+    100% {
+      right: 10vw;
+      width: 0px;
+    }
+  }
+}
+
+@media (min-width: 1824px) {
+  @-webkit-keyframes tailone {
+    0%, 57% {
+    }
+    58% {
+      right: 95vw;
+      width: 0;
+    }
+    79% {
+      width: 20px;
+    }
+    100% {
+      right: 10vw;
+      width: 0px;
+    }
+  }
+  @keyframes tailone {
+    0%, 57% {
+    }
+    58% {
+      right: 95vw;
+      width: 0;
+    }
+    79% {
+      width: 20px;
+    }
+    100% {
+      right: 10vw;
+      width: 0px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  @-webkit-keyframes tailtwo {
+    0%, 87% {
+    }
+    88% {
+      height: 0.75px;
+      right: 110vw;
+      width: 0;
+    }
+    94% {
+      width: 10px;
+    }
+    100% {
+      height: 0.75px;
+      right: 15vw;
+      width: 0px;
+    }
+  }
+  @keyframes tailtwo {
+    0%, 87% {
+    }
+    88% {
+      height: 0.75px;
+      right: 110vw;
+      width: 0;
+    }
+    94% {
+      width: 10px;
+    }
+    100% {
+      height: 0.75px;
+      right: 15vw;
+      width: 0px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  @-webkit-keyframes tailtwo {
+    0%, 87% {
+    }
+    88% {
+      right: 110vw;
+      width: 0;
+    }
+    94% {
+      width: 20px;
+    }
+    100% {
+      right: 15vw;
+      width: 0px;
+    }
+  }
+  @keyframes tailtwo {
+    0%, 87% {
+    }
+    88% {
+      right: 110vw;
+      width: 0;
+    }
+    94% {
+      width: 20px;
+    }
+    100% {
+      right: 15vw;
+      width: 0px;
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1823px) {
+  @-webkit-keyframes tailtwo {
+    0%, 87% {
+    }
+    88% {
+      right: 95vw;
+      width: 0;
+    }
+    94% {
+      width: 20px;
+    }
+    100% {
+      right: 10vw;
+      width: 0px;
+    }
+  }
+  @keyframes tailtwo {
+    0%, 87% {
+    }
+    88% {
+      right: 95vw;
+      width: 0;
+    }
+    94% {
+      width: 20px;
+    }
+    100% {
+      right: 10vw;
+      width: 0px;
+    }
+  }
+}
+
+@media (min-width: 1824px) {
+  @-webkit-keyframes tailtwo {
+    0%, 87% {
+    }
+    88% {
+      right: 95vw;
+      width: 0;
+    }
+    94% {
+      width: 20px;
+    }
+    100% {
+      right: 10vw;
+      width: 0px;
+    }
+  }
+  @keyframes tailtwo {
+    0%, 87% {
+    }
+    88% {
+      right: 95vw;
+      width: 0;
+    }
+    94% {
+      width: 20px;
+    }
+    100% {
+      right: 10vw;
+      width: 0px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  @-webkit-keyframes tailthree {
+    0%, 88% {
+    }
+    89% {
+      height: 0.75px;
+      right: 110vw;
+      width: 0;
+    }
+    94% {
+      width: 10px;
+    }
+    100% {
+      height: 0.75px;
+      right: 15vw;
+      width: 0px;
+    }
+  }
+  @keyframes tailthree {
+    0%, 88% {
+    }
+    89% {
+      height: 0.75px;
+      right: 110vw;
+      width: 0;
+    }
+    94% {
+      width: 10px;
+    }
+    100% {
+      height: 0.75px;
+      right: 15vw;
+      width: 0px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  @-webkit-keyframes tailthree {
+    0%, 88% {
+    }
+    89% {
+      right: 110vw;
+      width: 0;
+    }
+    94% {
+      width: 20px;
+    }
+    100% {
+      right: 15vw;
+      width: 0px;
+    }
+  }
+  @keyframes tailthree {
+    0%, 88% {
+    }
+    89% {
+      right: 110vw;
+      width: 0;
+    }
+    94% {
+      width: 20px;
+    }
+    100% {
+      right: 15vw;
+      width: 0px;
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1823px) {
+  @-webkit-keyframes tailthree {
+    0%, 88% {
+    }
+    89% {
+      right: 95vw;
+      width: 0;
+    }
+    94% {
+      width: 20px;
+    }
+    100% {
+      right: 10vw;
+      width: 0px;
+    }
+  }
+  @keyframes tailthree {
+    0%, 88% {
+    }
+    89% {
+      right: 95vw;
+      width: 0;
+    }
+    94% {
+      width: 20px;
+    }
+    100% {
+      right: 10vw;
+      width: 0px;
+    }
+  }
+}
+
+@media (min-width: 1824px) {
+  @-webkit-keyframes tailthree {
+    0%, 88% {
+    }
+    89% {
+      right: 95vw;
+      width: 0;
+    }
+    94% {
+      width: 20px;
+    }
+    100% {
+      right: 10vw;
+      width: 0px;
+    }
+  }
+  @keyframes tailthree {
+    0%, 88% {
+    }
+    89% {
+      right: 95vw;
+      width: 0;
+    }
+    94% {
+      width: 20px;
+    }
+    100% {
+      right: 10vw;
+      width: 0px;
+    }
+  }
+}
+
+.stars-container {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.stars-container .shooting-star-container {
+  bottom: 0%;
+  left: -40%;
+  overflow: hidden;
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  -webkit-transform: rotateZ(15deg);
+          transform: rotateZ(15deg);
+}
+
+.stars-container .shooting-star-container #ss0 {
+  -webkit-animation-name: tail;
+          animation-name: tail;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  background-color: #7fb3d6;
+  border-radius: 5px;
+  height: 2px;
+  position: absolute;
+  right: 50%;
+}
+
+.stars-container .shooting-star-container #ss1 {
+  -webkit-animation-name: tailone;
+          animation-name: tailone;
+  -webkit-animation-duration: 3.5s;
+          animation-duration: 3.5s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  background-color: #7fb3d6;
+  border-radius: 5px;
+  height: 2px;
+  position: absolute;
+  right: 50%;
+}
+
+.stars-container .shooting-star-container #ss2 {
+  -webkit-animation-name: tailtwo;
+          animation-name: tailtwo;
+  -webkit-animation-duration: 12s;
+          animation-duration: 12s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  background-color: #7fb3d6;
+  border-radius: 5px;
+  height: 2px;
+  position: absolute;
+  right: 50%;
+}
+
+.stars-container .shooting-star-container #ss3 {
+  -webkit-animation-name: tailthree;
+          animation-name: tailthree;
+  -webkit-animation-duration: 12.5s;
+          animation-duration: 12.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  background-color: #7fb3d6;
+  border-radius: 5px;
+  height: 2px;
+  position: absolute;
+  right: 50%;
+}
+
+.stars-container .star {
+  background-color: #bababa;
+  border-radius: 5px;
+  position: absolute;
+  right: -1;
+  top: -1;
+}
+
+.stars-container .star.small {
+  height: 2px;
+  width: 2px;
+}
+
+@media (max-width: 767px) {
+  .stars-container .star.small {
+    height: 0.25px;
+    width: 0.25px;
+  }
+}
+
+.stars-container .star.small.animate {
+  -webkit-animation-name: starGlow;
+          animation-name: starGlow;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.stars-container .star.regular {
+  height: 3px;
+  width: 3px;
+}
+
+@media (max-width: 767px) {
+  .stars-container .star.regular {
+    height: 0.75px;
+    width: 0.75px;
+  }
+}
+
+.stars-container .star.regular.animate {
+  -webkit-animation-name: starGlow;
+          animation-name: starGlow;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+* body {
+  margin: 0px;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  width: 100vw;
+  -ms-overflow-style: none;
+}
+
+* body::-webkit-scrollbar {
+  display: none;
+}

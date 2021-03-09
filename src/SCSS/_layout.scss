@@ -1,0 +1,8 @@
+@import './global';
+
+.layout-container{
+    @include flexJA(column, unset, unset);
+    overflow-x: hidden;
+    position: relative;
+    width: 100vw;
+}

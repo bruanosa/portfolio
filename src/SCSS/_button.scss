@@ -1,0 +1,123 @@
+@use "sass:color";
+@import "./global";
+
+
+@mixin glowTheme($color){
+    border: solid 1px $color;
+    box-shadow: 0px 0px 5px $color;
+    color:$color;
+}
+
+
+
+@mixin buttonKeyframe ($animationName, $color){
+    @keyframes #{$animationName}{
+        0% {
+            box-shadow: 0 0 5px $color;
+            -moz-box-shadow: 0 0 5px $color;
+          }
+        
+        3% {
+            box-shadow: 0 0 12px scale-color($color, $lightness: 30%, $alpha: -40%);
+            -moz-box-shadow: 0 0 12px scale-color($color, $lightness: 30%, $alpha: -40%);
+        }
+    
+        6% {
+            box-shadow: 0 0 5px $color;
+            -moz-box-shadow: 0 0 5px $color;
+
+        }
+    
+        9% {
+            box-shadow: 0 0 12px scale-color($color, $lightness: 30%, $alpha: -40%);
+            -moz-box-shadow: 0 0 12px scale-color($color, $lightness: 30%, $alpha: -40%);
+        }
+    
+        20% {
+            box-shadow: 0 0 5px $color;
+            -moz-box-shadow: 0 0 5px $color;
+        }
+    
+        70% {
+              box-shadow: 0 0 12px scale-color($color, $lightness: 30%, $alpha: -20%);
+              -moz-box-shadow: 0 0 12px scale-color($color, $lightness: 30%, $alpha: -20%);
+          }
+    
+        100% {
+            box-shadow: 0 0 3px$color;
+            -moz-box-shadow: 0 0 3px $color;
+          }
+    }
+}
+
+@include buttonKeyframe (greenGlow, $dm-neon-green);
+@include buttonKeyframe (blueGlow, $dm-neon-blue);
+@include buttonKeyframe (purpleGlow, $dm-neon-purple);
+@include buttonKeyframe (orangeGlow, $dm-neon-orange);
+@include buttonKeyframe (formGlow, $dm-accent);
+
+.btn-container{
+
+    .btn{
+
+        border-radius: 3px;
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding:10px 25px;
+        position: relative; 
+        text-align: none;
+        text-decoration: none;
+        width: fit-content;
+
+        &.light{
+
+            color: black;
+            font-weight: 700;
+            
+            &.green{
+                background-color: $dm-neon-green;
+            }
+            &.blue{
+                background-color: $dm-neon-blue;
+            }
+            &.purple{
+                background-color: $dm-neon-purple;
+            }
+            &.orange{
+                background-color: $dm-neon-orange;
+            }
+            &.form-blue{
+                background-color: $lm-blue;
+            }   
+
+        }
+        &.dark{
+            animation-duration: 2s;
+            animation-timing-function: ease-out;
+            animation-iteration-count: infinite; 
+
+            &.green{
+                @include glowTheme($dm-neon-green);
+                animation-name: greenGlow;
+            }
+            &.blue{
+                @include glowTheme($dm-neon-blue);
+                animation-name: blueGlow;
+            }
+            &.purple{
+                @include glowTheme($dm-neon-purple);
+                animation-name: purpleGlow;
+
+            }
+            &.orange{
+                @include glowTheme($dm-neon-orange);
+                animation-name: orangeGlow;
+            }
+            &.form-blue{
+                @include glowTheme($dm-accent);
+                animation-name: formGlow;
+            }
+        }
+    }
+}
+

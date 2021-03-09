@@ -1,0 +1,30 @@
+@import './landing.scss';
+@import './about.scss';
+@import './skills.scss';
+@import './work.scss';
+@import './contact.scss';
+@import './footer.scss';
+
+@import './layout.scss';
+@import './navbar.scss';
+@import './button.scss';
+@import './hamburger.scss';
+@import './menu.scss';
+@import './stars';
+
+
+@at-root *{
+    box-sizing: border-box;
+
+    body{
+        margin: 0px;
+        overflow-x: hidden;
+        scrollbar-width: none;
+        width: 100vw;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+}

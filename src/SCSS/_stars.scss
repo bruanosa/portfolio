@@ -1,0 +1,396 @@
+@use "sass:math";
+@use "sass:color";
+@import './global';
+
+// VARIABLES //
+
+$animationName: tail;
+$tailWidthMobile: 10px;
+$tailHeightMobile: 0.75px;
+
+// shooting star 0 variables
+$delay0: 2.5; 
+$animeTime0: 1.5; 
+$s0percentValues: getAnimationDelayValues($delay0, $animeTime0);
+
+// shooting star 1 variables
+$delay1: 2; 
+$animeTime1: 1.5; 
+$s1percentValues: getAnimationDelayValues($delay1, $animeTime1);
+
+// shooting star 2 variables
+$delay2: 10.5; 
+$animeTime2: 1.5; 
+$s2percentValues: getAnimationDelayValues($delay2, $animeTime2);
+
+// shooting star 3 variables
+$delay3: 11; 
+$animeTime3: 1.5; 
+$s3percentValues: getAnimationDelayValues($delay3, $animeTime3);
+
+// MIXINS //
+
+//css for background star animation
+@mixin starAnimation{
+    animation-name: starGlow;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite; 
+}
+//css for shooting star animation
+@mixin ssAnimation($name, $duration, $delay, $iteration){
+    animation-name: $name;
+    animation-duration: #{($duration + $delay)}s;
+    animation-iteration-count: $iteration;
+}
+//css for shooting stars
+@mixin ssStyle($animationName, $animeTime, $delay, $iteration, $color){
+    @include ssAnimation($animationName, $animeTime, $delay, $iteration);
+    background-color: $color;
+    border-radius: 5px;
+    height: 2px;
+    position: absolute;
+    right: 50%;
+}
+
+// KEYFRAMES //
+
+//animation for background stars
+@keyframes starGlow{
+    0%{
+        background-color: scale-color($color: $lm-grey, $alpha: -75%);
+    }
+    25%{
+        background-color: $lm-grey;
+    }
+    50%{
+        background-color: white;
+        box-shadow: 0 0 10px white;
+    }
+    75%{
+        background-color: $lm-grey;
+    }
+    100%{
+        background-color: scale-color($color: $lm-grey, $alpha: -75%);
+    }
+}
+
+// shooting star0 animation
+@include responsive(mobile){
+    @include keyframeDelay(#{$animationName}, $s0percentValues){
+        #{map-get($s0percentValues, animationStart)}{
+            height: $tailHeightMobile;
+            right: 110vw;
+            width: 0;
+         }
+        #{map-get($s0percentValues, animationMiddle)}{
+            width:  $tailWidthMobile;
+         }
+         100%{
+            height: $tailHeightMobile;
+            right: 15vw; 
+            width: 0px;
+         }
+     }
+}
+@include responsive(tablet){
+    @include keyframeDelay(#{$animationName}, $s0percentValues){
+        #{map-get($s0percentValues, animationStart)}{
+             right: 110vw;
+             width: 0;
+         }
+        #{map-get($s0percentValues, animationMiddle)}{
+             width: 20px; 
+         }
+         100%{
+            right: 15vw; 
+            width: 0px;  
+         }
+     }
+}
+@include responsive(desktop){
+    @include keyframeDelay(#{$animationName}, $s0percentValues){
+        #{map-get($s0percentValues, animationStart)}{
+             right: 95vw; //good for desktop
+             width: 0;
+         }
+        #{map-get($s0percentValues, animationMiddle)}{
+             width: 20px; //good for desktop & tablet
+         }
+         100%{
+             width: 0px;
+             right: 10vw;  // good size for desktop
+         }
+     }
+}
+@include responsive(large){
+    @include keyframeDelay(#{$animationName}, $s0percentValues){
+        #{map-get($s0percentValues, animationStart)}{
+             right: 95vw; //good for desktop
+             width: 0;
+         }
+        #{map-get($s0percentValues, animationMiddle)}{
+             width: 20px; //good for desktop & tablet
+         }
+         100%{
+             width: 0px;
+             right: 10vw;  // good size for desktop
+         }
+     }
+}
+// shooting star1 animation
+@include responsive(mobile){
+    @include keyframeDelay(#{$animationName}one, $s1percentValues){
+        #{map-get($s1percentValues, animationStart)}{
+            height: $tailHeightMobile;
+            right: 110vw;
+            width: 0;
+         }
+        #{map-get($s1percentValues, animationMiddle)}{
+            width:  $tailWidthMobile;
+         }
+         100%{
+            height: $tailHeightMobile;
+            right: 15vw; 
+            width: 0px;
+         }
+     }
+}
+@include responsive(tablet){
+    @include keyframeDelay(#{$animationName}one, $s1percentValues){
+        #{map-get($s1percentValues, animationStart)}{
+             right: 110vw; 
+             width: 0;
+         }
+        #{map-get($s1percentValues, animationMiddle)}{
+             width: 20px; 
+         }
+         100%{
+             right: 15vw; 
+             width: 0px;
+         }
+     }
+}
+@include responsive(desktop){
+    @include keyframeDelay(#{$animationName}one, $s1percentValues){
+        #{map-get($s1percentValues, animationStart)}{
+             right: 95vw; 
+             width: 0;
+         }
+        #{map-get($s1percentValues, animationMiddle)}{
+             width: 20px;
+         }
+         100%{
+             right: 10vw;  
+             width: 0px;
+         }
+     }
+}
+@include responsive(large){
+    @include keyframeDelay(#{$animationName}one, $s1percentValues){
+        #{map-get($s1percentValues, animationStart)}{
+             right: 95vw; 
+             width: 0;
+         }
+        #{map-get($s1percentValues, animationMiddle)}{
+             width: 20px;
+         }
+         100%{
+             right: 10vw;  
+             width: 0px;
+         }
+     }
+}
+//shooting star2 animation
+@include responsive(mobile){
+    @include keyframeDelay(#{$animationName}two, $s2percentValues){
+        #{map-get($s2percentValues, animationStart)}{
+            height: $tailHeightMobile;
+            right: 110vw;
+            width: 0;
+         }
+        #{map-get($s2percentValues, animationMiddle)}{
+            width:  $tailWidthMobile;
+         }
+         100%{
+            height: $tailHeightMobile;
+            right: 15vw;
+            width: 0px;
+         }
+     }
+}
+@include responsive(tablet){
+    @include keyframeDelay(#{$animationName}two, $s2percentValues){
+        #{map-get($s2percentValues, animationStart)}{
+             right: 110vw; 
+             width: 0;
+         }
+        #{map-get($s2percentValues, animationMiddle)}{
+             width: 20px; 
+         }
+         100%{
+             right: 15vw; 
+             width: 0px;
+        }
+     }
+}
+@include responsive(desktop){
+    @include keyframeDelay(#{$animationName}two, $s2percentValues){
+        #{map-get($s2percentValues, animationStart)}{
+            right: 95vw; 
+            width: 0;
+        }
+       #{map-get($s2percentValues, animationMiddle)}{
+            width: 20px; 
+        }
+        100%{
+            right: 10vw;  
+            width: 0px;
+        }
+    }
+}
+@include responsive(large){
+    @include keyframeDelay(#{$animationName}two, $s2percentValues){
+        #{map-get($s2percentValues, animationStart)}{
+            right: 95vw; 
+            width: 0;
+        }
+       #{map-get($s2percentValues, animationMiddle)}{
+            width: 20px; 
+        }
+        100%{
+            right: 10vw;  
+            width: 0px;
+        }
+    }
+}
+//shooting star3 animation
+@include responsive(mobile){
+    @include keyframeDelay(#{$animationName}three, $s3percentValues){
+        #{map-get($s3percentValues, animationStart)}{
+            height: $tailHeightMobile;
+            right: 110vw;
+            width: 0;
+         }
+        #{map-get($s3percentValues, animationMiddle)}{
+            width:  $tailWidthMobile;
+         }
+         100%{
+            height: $tailHeightMobile;
+            right: 15vw;
+            width: 0px;
+        }
+     }
+}
+@include responsive(tablet){
+    @include keyframeDelay(#{$animationName}three, $s3percentValues){
+        #{map-get($s3percentValues, animationStart)}{
+             right: 110vw; 
+             width: 0;
+         }
+        #{map-get($s3percentValues, animationMiddle)}{
+             width: 20px;
+         }
+         100%{
+            right: 15vw; 
+            width: 0px;
+         }
+     }
+}
+@include responsive(desktop){
+    @include keyframeDelay(#{$animationName}three, $s3percentValues){
+        #{map-get($s3percentValues, animationStart)}{
+            right: 95vw; 
+            width: 0;
+        }
+       #{map-get($s3percentValues, animationMiddle)}{
+            width: 20px;
+        }
+        100%{   
+            right: 10vw; 
+            width: 0px;
+        }
+    }
+}
+@include responsive(large){
+    @include keyframeDelay(#{$animationName}three, $s3percentValues){
+        #{map-get($s3percentValues, animationStart)}{
+            right: 95vw; 
+            width: 0;
+        }
+       #{map-get($s3percentValues, animationMiddle)}{
+            width: 20px;
+        }
+        100%{   
+            right: 10vw; 
+            width: 0px;
+        }
+    }
+}
+
+.stars-container{
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    .shooting-star-container {
+        bottom: 0%;
+        left: -40%;
+        overflow: hidden;
+        position: absolute;
+        right: 0%;
+        top: 0%;
+        transform: rotateZ(15deg);
+
+
+        #ss0{
+            @include ssStyle(#{$animationName}, $animeTime0, $delay0, 1, $dm-accent);
+        }
+        #ss1{
+            @include ssStyle(#{$animationName}one, $animeTime1, $delay1, 1, $dm-accent);
+        }
+        #ss2{
+            @include ssStyle(#{$animationName}two, $animeTime2, $delay2, infinite, $dm-accent);
+        }
+        #ss3{
+            @include ssStyle(#{$animationName}three, $animeTime3, $delay3, infinite, $dm-accent);
+        }
+    }
+    
+    .star{
+        background-color: $lm-grey;
+        border-radius: 5px;
+        position: absolute;
+        right: -1;
+        top: -1;
+
+        &.small{
+            height: 2px;
+            width: 2px;
+
+            @include responsive(mobile){
+                height: 0.25px;
+                width: 0.25px;
+            }
+
+            &.animate{
+                @include starAnimation;
+            }
+        }
+        &.regular{
+            height: 3px;
+            width: 3px;
+
+            @include responsive(mobile){
+                height: 0.75px;
+                width: 0.75px;
+            }
+
+            &.animate{
+                @include starAnimation;
+            }
+        }
+
+    }
+}

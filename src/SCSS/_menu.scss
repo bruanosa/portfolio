@@ -1,0 +1,83 @@
+.drop-down-menu{
+    height: 100vh;
+    position: absolute;
+    right: -50vw;
+    top: 0;
+    transition: all 0.3s ease-in;
+    width: 50vw;
+    
+    @include responsive(mobile){
+        right: -75vw;
+        width: 75vw;
+    }
+
+    &.open{
+        background-color: rgba(0, 0, 0, 0.801);
+        transform: translateX(-50vw);
+        z-index: 2;
+
+        @include responsive(mobile){
+            transform: translateX(-75vw);
+        }
+
+    }
+    &.closed{
+        opacity: 0;
+        z-index: -2;
+    }
+
+    nav{
+        @include flexC(column);
+        
+        ul{
+            @include flexJA(column, space-evenly, center);
+            height: 70%;
+            list-style: none;
+            width: 50%;
+
+            li .nav-link{
+                color: $landing-text-primary;
+                text-decoration: none;
+                font-size: xx-large;
+                
+                @include responsive(mobile)
+                {
+                    font-size: x-large;
+                }
+
+                &:hover{
+                    border-bottom: 2px solid $landing-text-accent;
+                    color: $landing-text-accent;
+                    padding-bottom: 10px;
+                }
+                &:active{
+                    border-bottom: 2px solid $lm-accent;
+                    color: $lm-accent;  
+                    padding-bottom: 10px;
+                }
+            }
+            li .active-link{
+                color: $landing-text-accent;
+                text-decoration: none;
+                font-size: xx-large;
+                
+                @include responsive(mobile)
+                {
+                    font-size: x-large;
+                }
+
+                &:hover{
+                    border-bottom: 2px solid $landing-text-accent;
+                    padding-bottom: 10px;
+                }
+                &:active{
+                    border-bottom: 2px solid $lm-accent;
+                    color: $lm-accent;  
+                    padding-bottom: 10px;
+                }
+
+            }
+        }
+
+    }
+}

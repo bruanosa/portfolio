@@ -1,0 +1,142 @@
+@use "sass:math";
+//////////////////////// >>> GLOBAL VARIABLES <<<//////////////////////////////
+
+// COLORS //
+
+//dark mode colors
+$dm-accent: #7fb3d6;
+$dm-background: #0b1f35;
+$dm-gradient-l: #50748e;
+$dm-gradient-m: #0d2544;
+$dm-gradient-r: black;
+$dm-neon-green: #4eff0d;
+$dm-neon-blue: #00ffff;
+$dm-neon-purple: #8a8aff;
+$dm-neon-orange: #ff901e;
+
+//light mode colors
+$lm-accent: #6d45e2;
+$lm-background: white;
+$lm-blue: #4fb8e9;
+$lm-gradient-l: #48c4ee;
+$lm-gradient-r: #6d87d6;
+$lm-grey: #bababa;
+
+//landing text color
+$landing-text-primary: white;
+$landing-text-accent: $dm-neon-green;
+
+// Media BreakPoints //
+
+$iphone-max: 767px;
+$ipad-min: 768px;
+$ipad-max: 1024px;
+$desktop-min: 1025px;
+$desktop-max: 1823px;
+$large-min: 1824px;
+/////////////////////////////////////////////
+
+// >>> MIXINS <<< ///
+
+// FLEX //
+@mixin flexC($direction){
+    align-items: center;
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+}
+
+@mixin flexJ($direction, $justify){
+    align-items: center;
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+}
+
+@mixin flexJA($direction, $justify, $align)
+{
+    align-items: $align;
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+}
+
+// GRID //
+@mixin gridStart($x, $y)
+{
+    grid-column: $y / span 1;
+    grid-row: $x / span 1;
+}
+
+@mixin gridCol($y, $span)
+{
+    grid-column: $y / span $span;
+}
+@mixin gridRow($x, $span)
+{
+    grid-row: $x / span $span;
+}
+
+@mixin gridSpan($x, $spanX, $y, $spanY){
+    grid-column: $y / span $spanY;
+    grid-row: $x / span $spanX;
+}
+
+// Media Queries //
+
+@mixin responsive($device){
+
+    @if($device == "mobile"){
+        @media (max-width: $iphone-max){
+            @content; 
+        }  
+    }
+    @else if($device == "tablet"){
+        @media (min-width:$ipad-min) and (max-width: $ipad-max){
+            @content; 
+        } 
+    }
+    @else if($device == "desktop"){
+        @media (min-width:$desktop-min) and (max-width: $desktop-max){
+            @content; 
+        }
+    }
+    @else{
+        @media (min-width: $large-min){
+            @content;
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////
+
+// ANIMATION //
+
+/*
+    This function is supposed to make it easier to create animation delays between each iteration of your animation.
+    
+    @param: $delayT, and $aniamationT.
+        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
+        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
+    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
+        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
+        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
+        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
+*/
+@function getAnimationDelayValues($delayT, $animationT){
+    $totalT: ($delayT) + $animationT;
+    $ratio: (1 - ($animationT / $totalT))*100;
+    $delayEnd: floor($ratio);
+    $animationStart: $delayEnd + 1;
+    $animationMiddle: floor((100 - $animationStart) / 2) + $animationStart;
+    $animationValues: (delayEnd: percentage($delayEnd/100), animationStart: percentage($animationStart/100), animationMiddle: percentage($animationMiddle/100) );
+    @return $animationValues;
+}
+
+//This mixin automatically adds our delay runtime inside the keyframe. We just need to finish the rest upon using. 
+@mixin keyframeDelay($animationName, $animationValues){
+    @keyframes #{$animationName}{
+        0%, #{map-get($animationValues, delayEnd)}{
+        }
+        @content;
+    }
+}
