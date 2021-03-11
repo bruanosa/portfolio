@@ -115,22 +115,26 @@
 
         h1{
             color: $landing-text-primary;
-            font-family: Impact;
+            font-family: 'Roboto', sans-serif;
             font-size: 65px;
+            font-weight: 700;
             margin: 0;
             padding:0;
             width: fit-content;
         }
         h2{
             color: $landing-text-accent;
+            font-family: 'Lobster Two', cursive;
+            font-size: 24px;
             margin: 0;
             padding: 0;
             width: fit-content;
         }
         p{
             color: $landing-text-primary;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-size: 18px;
+            font-weight: 300;
             margin: 0;
             padding:0;
             padding-top: 20px;
