@@ -51,7 +51,7 @@ export default function Landing(props) {
                 </div>
             </div>
 
-            <Menu isMenuOpen={isMenuOpen}/>
+            <Menu isMenuOpen={isMenuOpen} setMenu={setMenu}/>
 
         </div>
     )
