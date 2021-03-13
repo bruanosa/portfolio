@@ -6,7 +6,7 @@ module.exports = {
          options: {
             fonts:[
                'Roboto\: 300, 400, 500, 700, 900',
-               'Lobster Two\: 400, 400i, 700, 700i'
+               'Sansita Swashed\: 300, 400, 500, 600, 700, 800, 900'
             ],
             display: 'swap'
          }

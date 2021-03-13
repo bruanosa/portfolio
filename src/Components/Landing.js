@@ -29,7 +29,7 @@ export default function Landing(props) {
             
             <div class="grid-item-landing-text">
                 <h1>Bryan Ruano</h1>
-                <h2>Full-stack Developer</h2>
+                <h2>Full Stack Developer</h2>
                 <p>I develop websites that help business owners improve their digital footprint and online traffic by using aesthetically pleasing and responsive designs. </p>
             </div>
 
