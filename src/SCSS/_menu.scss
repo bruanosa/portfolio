@@ -12,7 +12,7 @@
     }
 
     &.open{
-        background-color: rgba(0, 0, 0, 0.801);
+        background-color: rgb(0, 0, 0,);
         transform: translateX(-50vw);
         z-index: 2;
 
@@ -37,9 +37,10 @@
 
             li .nav-link{
                 color: $landing-text-primary;
-                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
                 font-size: xx-large;
-                
+                text-decoration: none;
+
                 @include responsive(mobile)
                 {
                     font-size: x-large;
@@ -58,9 +59,10 @@
             }
             li .active-link{
                 color: $landing-text-accent;
-                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
                 font-size: xx-large;
-                
+                text-decoration: none;
+
                 @include responsive(mobile)
                 {
                     font-size: x-large;

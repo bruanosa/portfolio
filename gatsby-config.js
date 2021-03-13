@@ -2,20 +2,16 @@ module.exports = {
    plugins: [
       'gatsby-plugin-sass',
       {
-         resolve: `gatsby-plugin-prefetch-google-fonts`,
+         resolve: `gatsby-plugin-google-fonts`,
          options: {
-           fonts: [
-             {
-               family: `Roboto`,
-               variants: [`300` , `400`, `700`, `900`]
-             },
-             {
-                family: `Lobster`,
-                variants: [`400`, `700`]
-             }
+            fonts:[
+               'Roboto\: 300, 400, 500, 700, 900',
+               'Lobster Two\: 400, 400i, 700, 700i'
             ],
+            display: 'swap'
          }
       }
+      
       //insert more plugins here
       ]
 }
