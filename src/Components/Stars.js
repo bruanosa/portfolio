@@ -26,7 +26,7 @@ export default function Stars()
                 return(
                     <div 
                         id={`s${index}`}
-                        class={`star ${randomSize > 6 ? "regular" : "small"} ${randomSize % 5 == 0 ? "animate" : ""}`} 
+                        class={`star ${randomSize > 6 ? "regular" : "small"} ${index % 5 == 0 ? "animate" : ""}`} 
                         key={`s${index}`} 
                         style={{top: `${randomTop}%`, right: `${randomRight}%` }}
                     />
