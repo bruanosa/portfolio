@@ -170,31 +170,18 @@
             font-size: 18px;
             font-weight: 300;
             margin: 0;
+            margin-bottom: 10%;
             padding:0;
             padding-top: 20px;
             width: 425px;
 
             @include responsive(mobile){
+                margin-bottom: 20%;
                 width: fit-content;
             }
-        }
-    }
-
-    .grid-item-landing-btn{
-        @include flexJ(row,flex-start);
-        z-index: 1; 
-
-        @include responsive(mobile){
-            @include gridSpan(10,1,2,8);
-        }
-        @include responsive(tablet){
-            @include gridSpan(8,1,2,4);
-        }
-        @include responsive(desktop){
-            @include gridSpan(9,1,2,4);
-        }
-        @include responsive(large){
-            @include gridSpan(9,1,2,4);
+            @include responsive(tablet){
+                margin-bottom: 20%;
+            }
         }
     }
 
