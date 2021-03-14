@@ -14,7 +14,7 @@
     &.open{
         background-color: rgb(0, 0, 0,);
         transform: translateX(-50vw);
-        z-index: 2;
+        z-index: 4;
 
         @include responsive(mobile){
             transform: translateX(-75vw);
