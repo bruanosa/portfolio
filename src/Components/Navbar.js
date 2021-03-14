@@ -6,7 +6,7 @@ function Navbar(props) {
     return (
     <nav>
         <Link id="logo-link" to="/">
-            <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.65 109.67">
+            <svg className="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.65 109.67">
                 <g>
                     <g>
                     <path d="M50.91,5.1l-2.6,2.34H39.7c-.33.11-2.57.89-3,2.69a2.79,2.79,0,0,0-.05.73V99.78A3.35,3.35,0,0,0,40,102.34h8.21l2.7,2.4H39.07A6,6,0,0,1,33.94,100V9.65a6.25,6.25,0,0,1,5.2-4.55Z" fill="#fff"/>
@@ -24,14 +24,14 @@ function Navbar(props) {
             </svg>
         </Link> 
         <ul class="link-list">
-            <li><Link class="nav-link"  activeClassName="active-link" to="/">Home</Link></li>
-            <li><Link class="nav-link" activeClassName="active-link" to="/#about">About</Link></li>
-            <li><Link class="nav-link" activeClassName="active-link" to="/#skills">Skills</Link></li>
-            <li><Link class="nav-link" activeClassName="active-link" to="/#work">Work</Link></li>
-            <li><Link class="nav-link" activeClassName="active-link" to="/#contact">Contact</Link></li>
+            <li><Link className="nav-link"  activeClassName="active-link" to="/">Home</Link></li>
+            <li><Link className="nav-link" activeClassName="active-link" to="/#about">About</Link></li>
+            <li><Link className="nav-link" activeClassName="active-link" to="/#skills">Skills</Link></li>
+            <li><Link className="nav-link" activeClassName="active-link" to="/#work">Work</Link></li>
+            <li><Link class="nav-link" activeClassName="active-link" to="#contact">Contact</Link></li>
         </ul>
-        <div class="ham-container">
-           <Hamburger class="ham" isMenuOpen={props.isMenuOpen} setMenu={props.setMenu}/> 
+        <div className="ham-container">
+           <Hamburger className="ham" isMenuOpen={props.isMenuOpen} setMenu={props.setMenu}/> 
         </div>
         
     </nav>
