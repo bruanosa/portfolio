@@ -1,6 +1,10 @@
 module.exports = {
+   siteMetadata: {
+      title:  `Bryan Ruano | Portfolio`,
+      description: `This is my personal website where you can find my work`
+   },
    plugins: [
-      'gatsby-plugin-sass',
+      'gatsby-plugin-sass', 'gatsby-plugin-sharp','gatsby-transformer-sharp', 'gatsby-plugin-image',
       {
          resolve: `gatsby-plugin-google-fonts`,
          options: {
@@ -9,6 +13,13 @@ module.exports = {
                'Sansita Swashed\: 300, 400, 500, 600, 700, 800, 900'
             ],
             display: 'swap'
+         }
+      },
+      {
+         resolve:   `gatsby-source-filesystem`,
+         options: {
+            name: `images`,
+            path: `${__dirname}/src/images`
          }
       }
       
