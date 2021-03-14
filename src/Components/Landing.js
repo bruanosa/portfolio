@@ -96,10 +96,7 @@ export default function Landing(props) {
                 <h1>Bryan Ruano</h1>
                 <h2>Full Stack Developer</h2>
                 <p>I develop websites that help business owners improve their digital footprint and online traffic by using aesthetically pleasing and responsive designs. </p>
-            </div>
-
-            <div class="grid-item-landing-btn"> 
-               <Button href="#about" color="green" text="GET IN TOUCH" getTheme={props.getTheme} />
+                <Button href="#about" color="green" text="GET IN TOUCH" getTheme={props.getTheme} />
             </div>
 
             <div class="grid-item-landing-img"> 
@@ -113,7 +110,6 @@ export default function Landing(props) {
                     objectFit="contain"
                 />
             </div>
-
 
             <div class={`landing-background ${props.getTheme()}`}>
                 <svg class="background-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 175.8">
