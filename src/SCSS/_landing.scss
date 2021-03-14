@@ -26,9 +26,10 @@
     }
 
     .grid-item-slider{
+        position:relative;
         @include responsive(mobile){
             @include flexJ(row, flex-end);
-            @include gridSpan(3,1,11,1);
+            @include gridSpan(3,1,10,2);
         }
         @include responsive(tablet){
             @include flexJ(row, flex-end);
@@ -41,6 +42,37 @@
         @include responsive(large){
             @include flexJ(row, flex-start);
             @include gridSpan(2,1,11,1);
+        }
+
+        #slider-touch-area{
+            &.visible{
+                @include responsive(mobile){
+                    height: 100%;
+                    position: absolute;
+                    right: 50%;
+                    transform: translateX(50%);
+                    width: 30vw;
+                    z-index: 4;
+                }
+                @include responsive(tablet){
+                    height: 100%;
+                    position: absolute;
+                    right: 50%;
+                    transform: translateX(50%);
+                    width: 20vw;
+                    z-index: 4;
+                }
+                @include responsive(desktop){
+                    display: none;
+                }
+                @include responsive(large){
+                    display: none;
+                }
+            }
+            &.hidden{
+                display: none;
+            }
+            
         }
         
 
@@ -140,7 +172,11 @@
             margin: 0;
             padding:0;
             padding-top: 20px;
-            width: fit-content;
+            width: 425px;
+
+            @include responsive(mobile){
+                width: fit-content;
+            }
         }
     }
 
