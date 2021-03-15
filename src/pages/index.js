@@ -7,7 +7,7 @@ import About from '../Components/About';
 import Skills from '../Components/Skills';
 import Work from '../Components/Work';
 import Contact from '../Components/Contact';
-
+import SEO from '../Components/SEO';
 
 export default function IndexPage(){
 
@@ -33,8 +33,9 @@ export default function IndexPage(){
 
   return (
     <Layout switchTheme={switchTheme} getTheme={getTheme}>
+      <SEO/>
       <Landing windowW={width} windowH={height} switchTheme={switchTheme} getTheme={getTheme} />
-      {/* <div style={{color: 'white', display: "flex", position: 'absolute', "z-index" : 100}}> {width} X {height}</div> */}
+      <div style={{color: 'white', display: "flex", position: 'absolute', "z-index" : 100}}> {width} X {height}</div>
       <About getTheme={getTheme} />
       <Skills getTheme={getTheme} />
       <Work getTheme={getTheme} />
