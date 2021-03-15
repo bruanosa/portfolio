@@ -4,7 +4,7 @@ module.exports = {
       description: `This is my personal website where you can find my work`
    },
    plugins: [
-      'gatsby-plugin-sass', 'gatsby-plugin-sharp','gatsby-transformer-sharp', 'gatsby-plugin-image',
+      'gatsby-plugin-sass', 'gatsby-plugin-sharp','gatsby-transformer-sharp', 'gatsby-plugin-image', 'gatsby-plugin-react-helmet',
       {
          resolve: `gatsby-plugin-google-fonts`,
          options: {
