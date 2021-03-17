@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "../SCSS/Main.scss";
 
 import Layout from "../Components/Layout";
-// import Landing from '../Components/Landing';
+import Landing from '../Components/Landing';
 import About from '../Components/About';
 import Skills from '../Components/Skills';
 import Work from '../Components/Work';
@@ -30,7 +30,7 @@ export default function IndexPage(){
   return (
     <Layout switchTheme={switchTheme} getTheme={getTheme}>
       <SEO/>
-      {/* <Landing setLandingActive={setLandingActive} landingActive={landingActive} aboutActive={aboutActive} skillsActive={skillsActive} workActive={workActive} contactActive={contactActive} switchTheme={switchTheme} getTheme={getTheme} /> */}
+      <Landing setLandingActive={setLandingActive} landingActive={landingActive} aboutActive={aboutActive} skillsActive={skillsActive} workActive={workActive} contactActive={contactActive} switchTheme={switchTheme} getTheme={getTheme} /> */}
       <About setActive={setAboutActive} getTheme={getTheme} />
       <Skills setActive={setSkillsActive} getTheme={getTheme} />
       <Work setActive={setWorkActive} getTheme={getTheme} /> 
