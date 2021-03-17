@@ -11,16 +11,6 @@ import SEO from '../Components/SEO';
 
 export default function IndexPage(){
 
-  const [width, setWidth] = useState(window.innerWidth); //remove when done debugging
-  const [height, setHeight] = useState(window.innerHeight); //remove when done debugging
-  //remove when done debugging
-  const reportWindowSize = () =>{
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-  }
-  //remove when done debugging
-  window.onresize = reportWindowSize;
-
   const [isDark, setDark] = useState(true);
   const [landingActive, setLandingActive] = useState(false);
   const [aboutActive, setAboutActive] = useState(false);
@@ -41,7 +31,6 @@ export default function IndexPage(){
     <Layout switchTheme={switchTheme} getTheme={getTheme}>
       <SEO/>
       <Landing setLandingActive={setLandingActive} landingActive={landingActive} aboutActive={aboutActive} skillsActive={skillsActive} workActive={workActive} contactActive={contactActive} switchTheme={switchTheme} getTheme={getTheme} />
-      <div style={{color: 'white', display: "flex", position: 'absolute', "z-index" : 100}}> {width} X {height}</div>
       <About setActive={setAboutActive} getTheme={getTheme} />
       <Skills setActive={setSkillsActive} getTheme={getTheme} />
       <Work setActive={setWorkActive} getTheme={getTheme} /> 
