@@ -24,11 +24,11 @@ function Navbar(props) {
             </svg>
         </Link> 
         <ul class="link-list">
-            <li><Link className="nav-link"  activeClassName="active-link" to="/">Home</Link></li>
-            <li><Link className="nav-link" activeClassName="active-link" to="/#about">About</Link></li>
-            <li><Link className="nav-link" activeClassName="active-link" to="/#skills">Skills</Link></li>
-            <li><Link className="nav-link" activeClassName="active-link" to="/#work">Work</Link></li>
-            <li><Link class="nav-link" activeClassName="active-link" to="#contact">Contact</Link></li>
+            <li><Link className={`nav-link ${props.landingActive ? 'active' : ''}`} activeClassName="active-link" to="/">Home</Link></li>
+            <li><Link className={`nav-link ${props.aboutActive ? 'active' : ''}`} activeClassName="active-link" to="/#about">About</Link></li>
+            <li><Link className={`nav-link ${props.skillsActive ? 'active' : ''}`} activeClassName="active-link" to="/#skills">Skills</Link></li>
+            <li><Link className={`nav-link ${props.workActive ? 'active' : ''}`} activeClassName="active-link" to="/#work">Work</Link></li>
+            <li><Link class={`nav-link ${props.contactActive ? 'active' : ''}`} activeClassName="active-link" to="#contact">Contact</Link></li>
         </ul>
         <div className="ham-container">
            <Hamburger className="ham" isMenuOpen={props.isMenuOpen} setMenu={props.setMenu}/> 

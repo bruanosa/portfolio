@@ -22,6 +22,12 @@ export default function IndexPage(){
   window.onresize = reportWindowSize;
 
   const [isDark, setDark] = useState(true);
+  const [landingActive, setLandingActive] = useState(false);
+  const [aboutActive, setAboutActive] = useState(false);
+  const [skillsActive, setSkillsActive] = useState(false);
+  const [workActive, setWorkActive] = useState(false);
+  const [contactActive, setContactActive] = useState(false);
+  
   
   const getTheme = () =>{
     return isDark ? "dark" : "light";
@@ -34,12 +40,12 @@ export default function IndexPage(){
   return (
     <Layout switchTheme={switchTheme} getTheme={getTheme}>
       <SEO/>
-      <Landing windowW={width} windowH={height} switchTheme={switchTheme} getTheme={getTheme} />
+      <Landing setLandingActive={setLandingActive} landingActive={landingActive} aboutActive={aboutActive} skillsActive={skillsActive} workActive={workActive} contactActive={contactActive} switchTheme={switchTheme} getTheme={getTheme} />
       <div style={{color: 'white', display: "flex", position: 'absolute', "z-index" : 100}}> {width} X {height}</div>
-      <About getTheme={getTheme} />
-      <Skills getTheme={getTheme} />
-      <Work getTheme={getTheme} />
-      <Contact getTheme={getTheme} />
+      <About setActive={setAboutActive} getTheme={getTheme} />
+      <Skills setActive={setSkillsActive} getTheme={getTheme} />
+      <Work setActive={setWorkActive} getTheme={getTheme} /> 
+      <Contact setActive={setContactActive} getTheme={getTheme} />
     </Layout>
   )
 }

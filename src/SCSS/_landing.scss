@@ -9,8 +9,10 @@
     width: 100vw;
 
     .grid-item-nav{   
-        @include flexC(row);     
-
+        @include flexC(row);   
+        position: fixed;
+        left: 8.33%;
+        top: 5%;
         @include responsive(mobile){
             @include gridSpan(2, 1, 2, 10);
         }

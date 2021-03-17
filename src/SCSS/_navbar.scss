@@ -53,10 +53,13 @@ nav{
                     color: $lm-accent;
                     padding-bottom: 10px;
                 }
+                &.active{
+                    color: $landing-text-accent;
+                }
             }
 
             .active-link{
-                color: $landing-text-accent;
+                color: $landing-text-primary;
                 font-family: 'Roboto', sans-serif;
                 font-size: 15px; 
                 text-decoration: none;

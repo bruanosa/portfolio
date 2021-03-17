@@ -18,3 +18,27 @@ export function useEventListener(elementID, eventType, handler) {
         return () => document.getElementById(elementID).addEventListener(eventType, internalHandler);
     }, [eventType]);
 }
+
+export function useOnScreen(ref, options){
+    //keeps track of ref visibility
+    const [isVisible, setVisible] = useState(false);
+
+    useEffect(() => {
+        //create our observer
+        const observer = new IntersectionObserver(([entry]) =>{
+            setVisible(entry.isIntersecting); //updates visibility
+        }, options);
+
+        //attaches observer to ref element
+        if(ref.current){
+            observer.observe(ref.current);
+        }
+
+        //unobserve when done
+        return () => {observer.unobserve(ref.current);}
+        
+    }, []);
+
+    //return elements visibility 
+    return isVisible;
+}

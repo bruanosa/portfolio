@@ -1,4 +1,4 @@
-import  React, {useState} from 'react';
+import  React, {useState, useRef} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon} from '@fortawesome/free-solid-svg-icons';
 import {StaticImage} from 'gatsby-plugin-image';
@@ -10,7 +10,7 @@ import Menu from '../Components/Menu';
 import Stars from '../Components/Stars';
 
 //function imports
-import {useEventListener} from '../Functions/eventHook.js';
+import {useEventListener, useOnScreen} from '../Functions/customHooks.js';
 
 export default function Landing(props) {
 
@@ -23,13 +23,13 @@ export default function Landing(props) {
     //lets us know if client's device is a touch screen
     const isTouchDevice = "ontouchstart" in document.documentElement;
    
-    //setting up our on touch start event listener
+    //touch start event listener
     useEventListener("slider-touch-area", 'touchstart', (e) => {
         e.preventDefault();
         setTouchStart(e.touches[0].clientX);
     });
 
-    //setting up our on touch end event listener
+    //touch end event listener
     useEventListener("slider-touch-area",'touchend', (e) => {
         e.preventDefault();
         setTouchEnd(e.changedTouches[0].pageX);
@@ -80,11 +80,14 @@ export default function Landing(props) {
         }
     }
 
+    const landingRef = useRef();
+    props.setLandingActive(useOnScreen(landingRef, {root: null, rootMargin: "99% 0% 0% 0%", threshold: 1}));
+
     return (
-        <div class={`landing-container ${props.getTheme()}`}>
+        <div ref={landingRef} class={`landing-container ${props.getTheme()}`}>
             
             <div class="grid-item-nav">
-                <Navbar isMenuOpen={isMenuOpen} setMenu={setMenu}/>
+                <Navbar landingActive={props.landingActive} aboutActive={props.aboutActive} skillsActive={props.skillsActive} workActive={props.workActive} contactActive={props.contactActive} isMenuOpen={isMenuOpen} setMenu={setMenu}/>
             </div>
            
             <div class="grid-item-slider">

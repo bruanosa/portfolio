@@ -37,6 +37,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: fixed;
+  left: 8.33%;
+  top: 5%;
 }
 
 @media (max-width: 767px) {
@@ -83,6 +86,10 @@
   }
 }
 
+.landing-container .grid-item-slider {
+  position: relative;
+}
+
 @media (max-width: 767px) {
   .landing-container .grid-item-slider {
     -webkit-box-align: center;
@@ -98,9 +105,9 @@
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    -ms-grid-column: 11;
-    -ms-grid-column-span: 1;
-    grid-column: 11/span 1;
+    -ms-grid-column: 10;
+    -ms-grid-column-span: 2;
+    grid-column: 10/span 2;
     -ms-grid-row: 3;
     -ms-grid-row-span: 1;
     grid-row: 3/span 1;
@@ -177,6 +184,46 @@
     -ms-grid-row-span: 1;
     grid-row: 2/span 1;
   }
+}
+
+@media (max-width: 767px) {
+  .landing-container .grid-item-slider #slider-touch-area.visible {
+    height: 100%;
+    position: absolute;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+    width: 30vw;
+    z-index: 4;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .landing-container .grid-item-slider #slider-touch-area.visible {
+    height: 100%;
+    position: absolute;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+    width: 20vw;
+    z-index: 4;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1823px) {
+  .landing-container .grid-item-slider #slider-touch-area.visible {
+    display: none;
+  }
+}
+
+@media (min-width: 1824px) {
+  .landing-container .grid-item-slider #slider-touch-area.visible {
+    display: none;
+  }
+}
+
+.landing-container .grid-item-slider #slider-touch-area.hidden {
+  display: none;
 }
 
 .landing-container .grid-item-slider .slider {
@@ -336,8 +383,9 @@
 
 .landing-container .grid-item-landing-text h1 {
   color: white;
-  font-family: Impact;
+  font-family: 'Roboto', sans-serif;
   font-size: 65px;
+  font-weight: 700;
   margin: 0;
   padding: 0;
   width: -webkit-fit-content;
@@ -347,6 +395,10 @@
 
 .landing-container .grid-item-landing-text h2 {
   color: #4eff0d;
+  font-family: 'Sansita Swashed', cursive;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
   margin: 0;
   padding: 0;
   width: -webkit-fit-content;
@@ -356,74 +408,28 @@
 
 .landing-container .grid-item-landing-text p {
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
+  font-weight: 300;
   margin: 0;
+  margin-bottom: 10%;
   padding: 0;
   padding-top: 20px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.landing-container .grid-item-landing-btn {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  z-index: 1;
+  width: 425px;
 }
 
 @media (max-width: 767px) {
-  .landing-container .grid-item-landing-btn {
-    -ms-grid-column: 2;
-    -ms-grid-column-span: 8;
-    grid-column: 2/span 8;
-    -ms-grid-row: 10;
-    -ms-grid-row-span: 1;
-    grid-row: 10/span 1;
+  .landing-container .grid-item-landing-text p {
+    margin-bottom: 20%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .landing-container .grid-item-landing-btn {
-    -ms-grid-column: 2;
-    -ms-grid-column-span: 4;
-    grid-column: 2/span 4;
-    -ms-grid-row: 8;
-    -ms-grid-row-span: 1;
-    grid-row: 8/span 1;
-  }
-}
-
-@media (min-width: 1025px) and (max-width: 1823px) {
-  .landing-container .grid-item-landing-btn {
-    -ms-grid-column: 2;
-    -ms-grid-column-span: 4;
-    grid-column: 2/span 4;
-    -ms-grid-row: 9;
-    -ms-grid-row-span: 1;
-    grid-row: 9/span 1;
-  }
-}
-
-@media (min-width: 1824px) {
-  .landing-container .grid-item-landing-btn {
-    -ms-grid-column: 2;
-    -ms-grid-column-span: 4;
-    grid-column: 2/span 4;
-    -ms-grid-row: 9;
-    -ms-grid-row-span: 1;
-    grid-row: 9/span 1;
+  .landing-container .grid-item-landing-text p {
+    margin-bottom: 20%;
   }
 }
 
@@ -602,6 +608,12 @@
         $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
         $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
 */
+.skills-container {
+  background-color: grey;
+  height: 100vh;
+  width: 100vw;
+}
+
 @use "sass:math";
 /*
     This function is supposed to make it easier to create animation delays between each iteration of your animation.
@@ -614,6 +626,12 @@
         $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
         $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
 */
+#work {
+  width: 100vw;
+  height: 100vh;
+  background-color: #0b1f35;
+}
+
 @use "sass:math";
 /*
     This function is supposed to make it easier to create animation delays between each iteration of your animation.
@@ -626,6 +644,12 @@
         $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
         $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
 */
+#contact {
+  background-color: grey;
+  width: 100vw;
+  height: 100vh;
+}
+
 @use "sass:math";
 /*
     This function is supposed to make it easier to create animation delays between each iteration of your animation.
@@ -767,7 +791,8 @@ nav .link-list li {
 
 nav .link-list li .nav-link {
   color: white;
-  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
   text-decoration: none;
 }
 
@@ -783,9 +808,14 @@ nav .link-list li .nav-link:active {
   padding-bottom: 10px;
 }
 
-nav .link-list li .active-link {
+nav .link-list li .nav-link.active {
   color: #4eff0d;
-  font-size: 16px;
+}
+
+nav .link-list li .active-link {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
   text-decoration: none;
 }
 
@@ -1222,8 +1252,8 @@ nav .link-list li .active-link:active {
 
 .btn-container .btn {
   border-radius: 3px;
+  font-family: 'Roboto', sans-serif;
   font-size: 12px;
-  font-family: Arial, Helvetica, sans-serif;
   padding: 10px 25px;
   position: relative;
   text-align: none;
@@ -1329,7 +1359,7 @@ nav .link-list li .active-link:active {
   height: 50px;
   margin: auto;
   width: 50px;
-  z-index: 3;
+  z-index: 5;
 }
 
 .hamburger-btn .hamburger {
@@ -1394,10 +1424,10 @@ nav .link-list li .active-link:active {
 }
 
 .drop-down-menu.open {
-  background-color: rgba(0, 0, 0, 0.801);
+  background-color: black;
   -webkit-transform: translateX(-50vw);
           transform: translateX(-50vw);
-  z-index: 2;
+  z-index: 4;
 }
 
 @media (max-width: 767px) {
@@ -1449,8 +1479,9 @@ nav .link-list li .active-link:active {
 
 .drop-down-menu nav ul li .nav-link {
   color: white;
-  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
   font-size: xx-large;
+  text-decoration: none;
 }
 
 @media (max-width: 767px) {
@@ -1473,8 +1504,9 @@ nav .link-list li .active-link:active {
 
 .drop-down-menu nav ul li .active-link {
   color: #4eff0d;
-  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
   font-size: xx-large;
+  text-decoration: none;
 }
 
 @media (max-width: 767px) {
