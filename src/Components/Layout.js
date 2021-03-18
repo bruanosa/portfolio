@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Footer from '../Components/Footer.js';
 
 //this allows us to enable smooth scrolling across the whole app
