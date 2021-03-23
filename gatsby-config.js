@@ -21,7 +21,7 @@ module.exports = {
             name: `images`,
             path: `${__dirname}/src/images`
          }
-      }
+      },
       
       //insert more plugins here
       ]
