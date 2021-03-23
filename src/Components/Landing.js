@@ -21,7 +21,10 @@ export default function Landing(props) {
     const [sliderIsRight, setSlider] = useState(true);
 
     //lets us know if client's device is a touch screen
-    const isTouchDevice = "ontouchstart" in document.documentElement;
+    let isTouchDevice = false;
+    if(typeof document !== "undefined"){
+        isTouchDevice = "ontouchstart" in document.documentElement;
+    }
    
     //touch start event listener
     useEventListener("slider-touch-area", 'touchstart', (e) => {
