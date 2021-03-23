@@ -1,5 +1,3 @@
-@import './global';
-
 .layout-container{
     @include flexJA(column, unset, unset);
     overflow-x: hidden;

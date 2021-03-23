@@ -1,5 +1,3 @@
-@import './global';
-
 nav{
     @include flexJA(row, space-between, center);
     height: 100%;
