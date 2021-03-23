@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:color";
 /*
     This function is supposed to make it easier to create animation delays between each iteration of your animation.
     
@@ -574,18 +575,6 @@
   display: none;
 }
 
-@use "sass:math";
-/*
-    This function is supposed to make it easier to create animation delays between each iteration of your animation.
-    
-    @param: $delayT, and $aniamationT.
-        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
-        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
-    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
-        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
-        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
-        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
-*/
 #about.background {
   background: #0b1f35;
   height: 100vh;
@@ -596,84 +585,24 @@
   background: white;
 }
 
-@use "sass:math";
-/*
-    This function is supposed to make it easier to create animation delays between each iteration of your animation.
-    
-    @param: $delayT, and $aniamationT.
-        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
-        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
-    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
-        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
-        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
-        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
-*/
 .skills-container {
   background-color: grey;
   height: 100vh;
   width: 100vw;
 }
 
-@use "sass:math";
-/*
-    This function is supposed to make it easier to create animation delays between each iteration of your animation.
-    
-    @param: $delayT, and $aniamationT.
-        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
-        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
-    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
-        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
-        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
-        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
-*/
 #work {
   width: 100vw;
   height: 100vh;
   background-color: #0b1f35;
 }
 
-@use "sass:math";
-/*
-    This function is supposed to make it easier to create animation delays between each iteration of your animation.
-    
-    @param: $delayT, and $aniamationT.
-        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
-        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
-    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
-        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
-        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
-        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
-*/
 #contact {
   background-color: grey;
   width: 100vw;
   height: 100vh;
 }
 
-@use "sass:math";
-/*
-    This function is supposed to make it easier to create animation delays between each iteration of your animation.
-    
-    @param: $delayT, and $aniamationT.
-        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
-        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
-    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
-        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
-        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
-        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
-*/
-@use "sass:math";
-/*
-    This function is supposed to make it easier to create animation delays between each iteration of your animation.
-    
-    @param: $delayT, and $aniamationT.
-        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
-        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
-    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
-        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
-        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
-        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
-*/
 .layout-container {
   -webkit-box-align: unset;
       -ms-flex-align: unset;
@@ -693,18 +622,6 @@
   width: 100vw;
 }
 
-@use "sass:math";
-/*
-    This function is supposed to make it easier to create animation delays between each iteration of your animation.
-    
-    @param: $delayT, and $aniamationT.
-        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
-        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
-    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
-        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
-        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
-        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
-*/
 nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -858,19 +775,6 @@ nav .link-list li .active-link:active {
   }
 }
 
-@use "sass:color";
-@use "sass:math";
-/*
-    This function is supposed to make it easier to create animation delays between each iteration of your animation.
-    
-    @param: $delayT, and $aniamationT.
-        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
-        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
-    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
-        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
-        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
-        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
-*/
 @-webkit-keyframes greenGlow {
   0% {
     -webkit-box-shadow: 0 0 5px #4eff0d;
@@ -908,6 +812,7 @@ nav .link-list li .active-link:active {
     -moz-box-shadow: 0 0 3px #4eff0d;
   }
 }
+
 @keyframes greenGlow {
   0% {
     -webkit-box-shadow: 0 0 5px #4eff0d;
@@ -1528,18 +1433,6 @@ nav .link-list li .active-link:active {
 
 @use "sass:math";
 @use "sass:color";
-@use "sass:math";
-/*
-    This function is supposed to make it easier to create animation delays between each iteration of your animation.
-    
-    @param: $delayT, and $aniamationT.
-        $delayT: amount of time, in seconds, that you want to delay your animation upon each iteration. 
-        $animationT: amount of time, in seconds, that you want your animation to actually run for. 
-    @return: returns a map of three animation percentages: delayEnd, animationStart, animationMiddle. These values are calculated according to our two parameters. 
-        $delayEnd: the percentage needed to obtain the disired delay time set by the variable $delayT. 
-        $animationStart: the percentage value that the animation will begin on in order to reach the disired animation duration by the end.
-        $animationMiddle: is the percentage value in the middle of the animation start percentage and animation end percentage (100%). 
-*/
 @-webkit-keyframes starGlow {
   0% {
     background-color: rgba(186, 186, 186, 0.25);
