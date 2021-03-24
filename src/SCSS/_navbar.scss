@@ -1,94 +1,128 @@
-nav{
-    @include flexJA(row, space-between, center);
-    height: 100%;
-    position: relative;
-    width: 100%;
+.navbar-container{
+    width: 100vw;
+    height: fit-content;
+    padding: 2% 8.33% 0% 8.33%;
+    position: fixed;
+    top: 0;
+    transition: top 0.3s linear;
 
-    #logo-link{
-        color: $landing-text-primary;
-        font-size: 16px;
-        text-decoration: none;
-
-        .logo{
-            height: 60px;
-            width: 75px;
-        }
+    &.hide{
+        top: -25vh;
     }
-
-    .link-list{
-        @include responsive(mobile){
-            display: none;
-        }
-        @include responsive(tablet){
-            display: none;
-        }
-        @include responsive(desktop){
-            @include flexJA(row, space-evenly, unset);
-            width: 50vw;
-        }
-        @include responsive(large){
-            @include flexJA(row, space-evenly, unset);
-            width: 50vw;
-        }
-
-
-        li{
-            list-style: none;
-
-            .nav-link{
-                color: $landing-text-primary;
-                font-family: 'Roboto', sans-serif;
-                font-size: 15px;
-                text-decoration: none;
-
-                &:hover{
-                    border-bottom: 2px solid $landing-text-accent;
-                    color: $landing-text-accent;
-                    padding-bottom: 10px;
-                }
-                &:active{
-                    border-bottom: 2px solid $lm-accent;
-                    color: $lm-accent;
-                    padding-bottom: 10px;
-                }
-                &.active{
-                    color: $landing-text-accent;
-                }
-            }
-
-            .active-link{
-                color: $landing-text-primary;
-                font-family: 'Roboto', sans-serif;
-                font-size: 15px; 
-                text-decoration: none;
-
-                &:hover{
-                    border-bottom: 2px solid $landing-text-accent;
-                    padding-bottom: 10px;
-                }
-                &:active{
-                    border-bottom: 2px solid $lm-accent;
-                    color: $lm-accent;
-                    padding-bottom: 10px;
-                }
-                
+    
+    nav{
+        @include flexJA(row, space-between, center);
+        position: relative;
+    
+        #logo-link{
+            color: $landing-text-primary;
+            font-size: 16px;
+            text-decoration: none;
+    
+            .logo{
+                height: 60px;
+                width: 75px;
             }
         }
     
-    }
-    .ham-container{
-
-        @include responsive(mobile){
-            display: flex;
+        .link-list{
+            @include responsive(mobile){
+                display: none;
+            }
+            @include responsive(tablet){
+                display: none;
+            }
+            @include responsive(desktop){
+                @include flexJA(row, space-evenly, unset);
+                width: 50vw;
+            }
+            @include responsive(large){
+                @include flexJA(row, space-evenly, unset);
+                width: 50vw;
+            }
+    
+    
+            li{
+                list-style: none;
+    
+                .nav-link{
+                    color: $landing-text-primary;
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 15px;
+                    text-decoration: none;
+    
+                    &:hover{
+                        border-bottom: 2px solid $landing-text-accent;
+                        color: $landing-text-accent;
+                        padding-bottom: 10px;
+                    }
+                    &:active{
+                        border-bottom: 2px solid $lm-accent;
+                        color: $lm-accent;
+                        padding-bottom: 10px;
+                    }
+                    &.active{
+                        color: $landing-text-accent;
+                    }
+                }
+    
+                .active-link{
+                    color: $landing-text-primary;
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 15px; 
+                    text-decoration: none;
+    
+                    &:hover{
+                        border-bottom: 2px solid $landing-text-accent;
+                        padding-bottom: 10px;
+                    }
+                    &:active{
+                        border-bottom: 2px solid $lm-accent;
+                        color: $lm-accent;
+                        padding-bottom: 10px;
+                    }
+                    
+                }
+            }
+        
         }
-        @include responsive(tablet){
-            display: flex;
-        }
-        @include responsive(desktop){
-            display: none;
-        }
-        @include responsive(large){
-            display: none;
+    
+        .ham-slider-container{
+            @include flexC(column);
+            position: relative;
+    
+            @include responsive(mobile){
+                height: fit-content;
+                position: absolute;
+                top: 10%;
+                right: 0;
+                width: fit-content;
+            }
+            @include responsive(tablet){
+                height: fit-content;
+                position: absolute;
+                top: 10%;
+                right: 0;
+                width: fit-content;
+            }
+    
+            .ham-container{
+                display: flex;
+                height: fit-content;  
+                position: relative;
+                margin-bottom: 30%; //space between hamburger menu and slider
+                width: fit-content;
+                
+                @include responsive(desktop){
+                    display: none;
+                }
+                @include responsive(large){
+                    display: none;
+                }
+    
+                
+            }
         }
     }
 }
+
