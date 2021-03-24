@@ -6,127 +6,6 @@
     position: relative;
     width: 100vw;
 
-    .grid-item-nav{   
-        @include flexC(row);   
-        position: fixed;
-        left: 8.33%;
-        top: 5%;
-        @include responsive(mobile){
-            @include gridSpan(2, 1, 2, 10);
-        }
-        @include responsive(tablet){
-            @include gridSpan(2, 1, 2, 10);
-        }
-        @include responsive(desktop){
-            @include gridSpan(2, 1, 2, 9);
-        }
-        @include responsive(large){
-            @include gridSpan(2, 1, 2, 9);
-        }
-    }
-
-    .grid-item-slider{
-        position:relative;
-        @include responsive(mobile){
-            @include flexJ(row, flex-end);
-            @include gridSpan(3,1,10,2);
-        }
-        @include responsive(tablet){
-            @include flexJ(row, flex-end);
-            @include gridSpan(3,1,11,1);
-        }
-        @include responsive(desktop){
-            @include flexJ(row, flex-start);
-            @include gridSpan(2,1,11,1);
-        }
-        @include responsive(large){
-            @include flexJ(row, flex-start);
-            @include gridSpan(2,1,11,1);
-        }
-
-        #slider-touch-area{
-            &.visible{
-                @include responsive(mobile){
-                    height: 100%;
-                    position: absolute;
-                    right: 50%;
-                    transform: translateX(50%);
-                    width: 30vw;
-                    z-index: 4;
-                }
-                @include responsive(tablet){
-                    height: 100%;
-                    position: absolute;
-                    right: 50%;
-                    transform: translateX(50%);
-                    width: 20vw;
-                    z-index: 4;
-                }
-                @include responsive(desktop){
-                    display: none;
-                }
-                @include responsive(large){
-                    display: none;
-                }
-            }
-            &.hidden{
-                display: none;
-            }
-            
-        }
-        
-
-        .slider{
-            @include flexJA(row,unset,center);
-            border-radius: 25px;
-            height: 15px;
-            padding: 0px 5px;
-            transition: background-color 0.2s ease-in-out;
-            width: 50px;
-
-            .slider-ball{
-                @include flexC(row);
-                background-color: $lm-background;
-                border-radius: 20px;
-                height: 22px;
-                position: relative;
-                transition: transform 0.2s linear;
-                width: 22px;
-
-                .moon-icon{
-                    @include flexC(row);
-                    font-size: 13px;
-                    position: relative;
-                }
-            }
-
-            &.dark{
-                background-color: $dm-neon-green;
-
-                .slider-ball{
-                    box-shadow: -5px 0px 3px 0px rgba(0, 0, 0, 0.185);
-                    transform: translateX(25px);
-
-                    .moon-icon{
-                        color: $dm-background;
-                    }
-                }
-            }
-            &.light{
-                background-color: $lm-grey;
-
-                .slider-ball{
-                    box-shadow: 5px 0px 3px 0px rgba(0, 0, 0, 0.185);
-                    transform: translateX(-10px);
-
-                    .moon-icon{
-                        color: $lm-accent;
-                    }
-                }
-            }
-        }
-    } 
-
     .grid-item-landing-text{
         @include flexJA(column, flex-start, unset);
 
@@ -193,15 +72,12 @@
         }
         @include responsive(tablet){
             @include gridStart(8,13);
-            z-index: 1;
         }
         @include responsive(desktop){
             @include gridStart(6,12);
-            z-index: 1;
         }
         @include responsive(large){
             @include gridStart(6,12);
-            z-index: 1;
         }
         
 
