@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "../SCSS/Main.scss";
 
 import Layout from "../Components/Layout";
+import Navbar from '../Components/Navbar'
 import Landing from '../Components/Landing';
 import About from '../Components/About';
 import Skills from '../Components/Skills';
@@ -17,6 +18,7 @@ export default function IndexPage(){
   const [skillsActive, setSkillsActive] = useState(false);
   const [workActive, setWorkActive] = useState(false);
   const [contactActive, setContactActive] = useState(false);
+  const [isMenuOpen, setMenu] = useState(false);
   
   
   const getTheme = () =>{
@@ -30,7 +32,19 @@ export default function IndexPage(){
   return (
     <Layout switchTheme={switchTheme} getTheme={getTheme}>
       <SEO/>
-      <Landing setLandingActive={setLandingActive} landingActive={landingActive} aboutActive={aboutActive} skillsActive={skillsActive} workActive={workActive} contactActive={contactActive} switchTheme={switchTheme} getTheme={getTheme} />
+      <Landing setLandingActive={setLandingActive} getTheme={getTheme} />
+      <Navbar 
+        switchTheme={switchTheme} 
+        getTheme={getTheme} 
+        isMenuOpen={isMenuOpen} 
+        setMenu={setMenu}
+        landingActive={landingActive} 
+        aboutActive={aboutActive} 
+        skillsActive={skillsActive} 
+        workActive={workActive} 
+        contactActive={contactActive}
+      />
+      
       <About setActive={setAboutActive} getTheme={getTheme} />
       <Skills setActive={setSkillsActive} getTheme={getTheme} />
       <Work setActive={setWorkActive} getTheme={getTheme} /> 
