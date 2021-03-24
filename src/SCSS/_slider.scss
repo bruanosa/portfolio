@@ -1,0 +1,50 @@
+.slider{
+    @include flexJA(row,unset,center);
+    border-radius: 25px;
+    height: 15px;
+    padding: 0px 5px;
+    position: relative;
+    transition: background-color 0.2s ease-in-out;
+    width: 50px;
+
+    .slider-ball{
+        @include flexC(row);
+        background-color: $lm-background;
+        border-radius: 20px;
+        height: 22px;
+        position: relative;
+        transition: transform 0.2s linear;
+        width: 22px;
+
+        .moon-icon{
+            @include flexC(row);
+            font-size: 13px;
+            position: relative;
+        }
+    }
+
+    &.dark{
+        background-color: $dm-neon-green;
+
+        .slider-ball{
+            box-shadow: -5px 0px 3px 0px rgba(0, 0, 0, 0.185);
+            transform: translateX(25px);
+
+            .moon-icon{
+                color: $dm-background;
+            }
+        }
+    }
+    &.light{
+        background-color: $lm-grey;
+
+        .slider-ball{
+            box-shadow: 5px 0px 3px 0px rgba(0, 0, 0, 0.185);
+            transform: translateX(-10px);
+
+            .moon-icon{
+                color: $lm-accent;
+            }
+        }
+    }
+}
