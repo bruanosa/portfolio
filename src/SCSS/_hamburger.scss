@@ -1,14 +1,16 @@
 .hamburger-btn{
     @include flexC(column);
     height: 50px;
+    position:relative;
     margin: auto; 
     width: 50px;
-    z-index:5;
+    z-index: 5;
 
     .hamburger{
         background-color: $landing-text-primary;
         border-radius: 5px;
         height: 5px;
+        position: relative;
         transition: all .2s ease-in-out;
         width: 40px;
 
