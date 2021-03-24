@@ -1,6 +1,9 @@
 .layout-container{
     @include flexJA(column, unset, unset);
     overflow-x: hidden;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0; 
+    right: 0;
     width: 100vw;
 }
