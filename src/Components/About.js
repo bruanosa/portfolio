@@ -8,7 +8,7 @@ export default function About(props) {
 
     return (
         <div ref={aboutRef} id="about" class={`background ${props.getTheme()}`}>
-
+            ABOUT SECTION
         </div>
     )
 }

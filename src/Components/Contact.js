@@ -9,7 +9,7 @@ export default function Contact(props) {
 
     return (
         <div ref={contactRef} id="contact" className="contact-container">
-            
+            CONTACT SECTION
         </div>
     )
 }
