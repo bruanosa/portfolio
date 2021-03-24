@@ -8,7 +8,7 @@ export default function Work(props) {
 
     return (
         <div ref={workRef} id="work" className="work-container">
-            
+            WORK SECTION
         </div>
     )
 }

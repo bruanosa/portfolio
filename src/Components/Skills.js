@@ -6,7 +6,7 @@ export default function Skills(props) {
     props.setActive(useOnScreen(skillsRef, {root: null, rootMargin: "99% 0% 0% 0%", threshold: 1}));
     return (
         <div ref={skillsRef} class="skills-container" id="skills">
-            
+            SKILLS SECTION
         </div>
     )
 }
